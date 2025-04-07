@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - TerraCraft</title>
+    <link rel="stylesheet" href="store.css" />
+    <link rel="stylesheet" href="checkout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="site-header">
+        <nav class="main-nav">
+          <h1 class="site-title">terraCraft</h1>
+          <div class="nav-links">
+            <a class="nav-link" href="store.html">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+            <a href="#" class="nav-link">Forum</a>
+          </div>
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a href="cart.html" class="cart-button">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+          </a>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu">
+          <a href="store.html" class="mobile-nav-link">Home</a>
+          <a href="#" class="mobile-nav-link">About</a>
+          <a href="#" class="mobile-nav-link">Contact</a>
+          <a href="#" class="mobile-nav-link">Forum</a>
+        </div>
+      </header>
+
+      <main class="checkout-main">
+        <h1 class="checkout-title">Checkout</h1>
+
+        <div class="checkout-container">
+          <section class="checkout-form-section">
+            <h2 class="section-title">Shipping Information</h2>
+            <form id="checkout-form" class="checkout-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name">First Name</label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="first-name"
+                    required
+                  />
+                  <span class="error-message" id="first-name-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" name="last-name" required />
+                  <span class="error-message" id="last-name-error"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+                <span class="error-message" id="email-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="address">Street Address</label>
+                <input type="text" id="address" name="address" required />
+                <span class="error-message" id="address-error"></span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" required />
+                  <span class="error-message" id="city-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="state">State/Province</label>
+                  <input type="text" id="state" name="state" required />
+                  <span class="error-message" id="state-error"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="zip">Zip/Postal Code</label>
+                  <input type="number" id="zip" name="zip" required />
+                  <span class="error-message" id="zip-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="country">Country</label>
+                  <select id="country" name="country" required>
+                    <option value="">Select Country</option>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="AU">Australia</option>
+                  </select>
+                  <span class="error-message" id="country-error"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="number" id="phone" name="phone" required />
+                <span class="error-message" id="phone-error"></span>
+              </div>
+
+              <h2 class="section-title">Payment Information</h2>
+
+              <div class="form-group">
+                <label for="card-name">Name on Card</label>
+                <input type="text" id="card-name" name="card-name" required />
+                <span class="error-message" id="card-name-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input
+                  type="text"
+                  id="card-number"
+                  name="card-number"
+                  placeholder="XXXX XXXX XXXX XXXX"
+                  required
+                />
+                <span class="error-message" id="card-number-error"></span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="expiry">Expiration Date</label>
+                  <input
+                    type="text"
+                    id="expiry"
+                    name="expiry"
+                    placeholder="MM/YY"
+                    required
+                  />
+                  <span class="error-message" id="expiry-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="cvv">CVV</label>
+                  <input
+                    type="text"
+                    id="cvv"
+                    name="cvv"
+                    placeholder="123"
+                    required
+                  />
+                  <span class="error-message" id="cvv-error"></span>
+                </div>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="save-info" name="save-info" />
+                <label for="save-info"
+                  >Save this information for next time</label
+                >
+              </div>
+
+              <button type="submit" class="checkout-submit-button">
+                Complete Order
+              </button>
+            </form>
+          </section>
+
+          <section class="order-summary-section">
+            <h2 class="section-title">Order Summary</h2>
+            <div class="order-summary">
+              <div id="order-items" class="order-items">
+                <!-- Order items will be populated by JavaScript -->
+              </div>
+
+              <div class="order-totals">
+                <div class="order-subtotal">
+                  <span>Subtotal</span>
+                  <span id="subtotal">$0.00</span>
+                </div>
+                <div class="order-shipping">
+                  <span>Shipping</span>
+                  <span id="shipping">$5.99</span>
+                </div>
+                <div class="order-tax">
+                  <span>Tax</span>
+                  <span id="tax">$0.00</span>
+                </div>
+                <div class="order-total">
+                  <span>Total</span>
+                  <span id="total">$0.00</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="promo-code">
+              <h3>Promo Code</h3>
+              <div class="promo-input">
+                <input
+                  type="text"
+                  id="promo-code"
+                  placeholder="Enter promo code"
+                />
+                <button id="apply-promo">Apply</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="order-confirmation" id="order-confirmation">
+          <div class="confirmation-content">
+            <i class="fas fa-check-circle confirmation-icon"></i>
+            <h2>Thank You for Your Order!</h2>
+            <p>Your order has been placed successfully.</p>
+            <p>Order #: <span id="order-number">ORD-12345</span></p>
+            <p>
+              A confirmation email has been sent to
+              <span id="confirmation-email"></span>
+            </p>
+            <a href="store.html" class="back-to-store-button"
+              >Continue Shopping</a
+            >
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-content">
+          <section class="footer-section">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="store.html" class="footer-link">Home</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">About Us</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Products</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Contact</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Categories</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="#" class="footer-link">Tools</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Seeds</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Fertilizers</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Community</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="#" class="footer-link">Forum</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Blog</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Events</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p class="footer-text">Email: info@terracraft.com</p>
+            <p class="footer-text">Phone: (555) 123-4567</p>
+            <p class="footer-text">Address: 123 Green Street, Earth City</p>
+          </section>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy;  2025 TerraCraft. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        document
+          .getElementById("mobile-menu-toggle")
+          .addEventListener("click", function () {
+            const mobileMenu = document.getElementById("mobile-menu");
+            mobileMenu.classList.toggle("active");
+          });
+
+        // Get cart items from localStorage
+        const cartItems =
+          JSON.parse(localStorage.getItem("organicStoreCart")) || [];
+        const orderItemsContainer = document.getElementById("order-items");
+
+        // Calculate totals
+        let subtotal = 0;
+        const shipping = 5.99;
+        let tax = 0;
+        let total = 0;
+
+        // Display cart items in order summary
+        if (cartItems.length > 0) {
+          cartItems.forEach((item) => {
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+
+            const itemElement = document.createElement("div");
+            itemElement.className = "order-item";
+            itemElement.innerHTML = `
+            <div class="order-item-image">
+              <img src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="order-item-details">
+              <h4>${item.name}</h4>
+              <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+            </div>
+            <div class="order-item-total">$${itemTotal.toFixed(2)}</div>
+          `;
+            orderItemsContainer.appendChild(itemElement);
+          });
+        } else {
+          // If cart is empty, show message and disable checkout button
+          orderItemsContainer.innerHTML =
+            '<p class="empty-cart-message">Your cart is empty. Add some products before checkout.</p>';
+          document.querySelector(".checkout-submit-button").disabled = true;
+        }
+
+        // Calculate tax (assuming 8% tax rate)
+        tax = subtotal * 0.08;
+
+        // Calculate total
+        total = subtotal + shipping + tax;
+
+        // Update totals in the DOM
+        document.getElementById("subtotal").textContent =
+          `$${subtotal.toFixed(2)}`;
+        document.getElementById("shipping").textContent =
+          `$${shipping.toFixed(2)}`;
+        document.getElementById("tax").textContent = `$${tax.toFixed(2)}`;
+        document.getElementById("total").textContent = `$${total.toFixed(2)}`;
+
+        // Form validation
+        const checkoutForm = document.getElementById("checkout-form");
+
+        checkoutForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Reset error messages
+          document.querySelectorAll(".error-message").forEach((el) => {
+            el.textContent = "";
+          });
+
+          let isValid = true;
+
+          // Validate first name
+          const firstName = document.getElementById("first-name");
+          if (!firstName.value.trim()) {
+            document.getElementById("first-name-error").textContent =
+              "First name is required";
+            isValid = false;
+          }
+
+          // Validate last name
+          const lastName = document.getElementById("last-name");
+          if (!lastName.value.trim()) {
+            document.getElementById("last-name-error").textContent =
+              "Last name is required";
+            isValid = false;
+          }
+
+          // Validate email
+          const email = document.getElementById("email");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!email.value.trim()) {
+            document.getElementById("email-error").textContent =
+              "Email is required";
+            isValid = false;
+          } else if (!emailRegex.test(email.value.trim())) {
+            document.getElementById("email-error").textContent =
+              "Please enter a valid email address";
+            isValid = false;
+          }
+
+          // Validate address
+          const address = document.getElementById("address");
+          if (!address.value.trim()) {
+            document.getElementById("address-error").textContent =
+              "Address is required";
+            isValid = false;
+          }
+
+          // Validate city
+          const city = document.getElementById("city");
+          if (!city.value.trim()) {
+            document.getElementById("city-error").textContent =
+              "City is required";
+            isValid = false;
+          }
+
+          // Validate state
+          const state = document.getElementById("state");
+          if (!state.value.trim()) {
+            document.getElementById("state-error").textContent =
+              "State is required";
+            isValid = false;
+          }
+
+          // Validate zip
+          const zip = document.getElementById("zip");
+          if (!zip.value.trim()) {
+            document.getElementById("zip-error").textContent =
+              "Zip code is required";
+            isValid = false;
+          }
+
+          // Validate country
+          const country = document.getElementById("country");
+          if (!country.value) {
+            document.getElementById("country-error").textContent =
+              "Please select a country";
+            isValid = false;
+          }
+
+          // Validate phone
+          const phone = document.getElementById("phone");
+          if (!phone.value.trim()) {
+            document.getElementById("phone-error").textContent =
+              "Phone number is required";
+            isValid = false;
+          }
+
+          // Validate card name
+          const cardName = document.getElementById("card-name");
+          if (!cardName.value.trim()) {
+            document.getElementById("card-name-error").textContent =
+              "Name on card is required";
+            isValid = false;
+          }
+
+          // Validate card number
+          const cardNumber = document.getElementById("card-number");
+          const cardNumberRegex = /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/;
+          if (!cardNumber.value.trim()) {
+            document.getElementById("card-number-error").textContent =
+              "Card number is required";
+            isValid = false;
+          } else if (!cardNumberRegex.test(cardNumber.value.trim())) {
+            document.getElementById("card-number-error").textContent =
+              "Please enter a valid card number (XXXX XXXX XXXX XXXX)";
+            isValid = false;
+          }
+
+          // Validate expiry
+          const expiry = document.getElementById("expiry");
+          const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+          if (!expiry.value.trim()) {
+            document.getElementById("expiry-error").textContent =
+              "Expiration date is required";
+            isValid = false;
+          } else if (!expiryRegex.test(expiry.value.trim())) {
+            document.getElementById("expiry-error").textContent =
+              "Please enter a valid expiration date (MM/YY)";
+            isValid = false;
+          }
+
+          // Validate CVV
+          const cvv = document.getElementById("cvv");
+          const cvvRegex = /^\d{3,4}$/;
+          if (!cvv.value.trim()) {
+            document.getElementById("cvv-error").textContent =
+              "CVV is required";
+            isValid = false;
+          } else if (!cvvRegex.test(cvv.value.trim())) {
+            document.getElementById("cvv-error").textContent =
+              "Please enter a valid CVV (3-4 digits)";
+            isValid = false;
+          }
+
+          if (isValid) {
+            // Show order confirmation
+            document.getElementById("confirmation-email").textContent =
+              email.value;
+            document.getElementById("order-number").textContent =
+              "ORD-" + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById("order-confirmation").style.display =
+              "flex";
+
+            // Clear cart
+            localStorage.removeItem("organicStoreCart");
+          }
+        });
+
+        // Format card number input
+        const cardNumberInput = document.getElementById("card-number");
+        cardNumberInput.addEventListener("input", function (e) {
+          let value = e.target.value.replace(/\D/g, "");
+          if (value.length > 16) {
+            value = value.slice(0, 16);
+          }
+
+          // Format with spaces
+          const parts = [];
+          for (let i = 0; i < value.length; i += 4) {
+            parts.push(value.slice(i, i + 4));
+          }
+          e.target.value = parts.join(" ");
+        });
+
+        // Format expiry date input
+        const expiryInput = document.getElementById("expiry");
+        expiryInput.addEventListener("input", function (e) {
+          let value = e.target.value.replace(/\D/g, "");
+          if (value.length > 4) {
+            value = value.slice(0, 4);
+          }
+
+          if (value.length > 2) {
+            e.target.value = value.slice(0, 2) + "/" + value.slice(2);
+          } else {
+            e.target.value = value;
+          }
+        });
+
+        // Apply promo code
+        document
+          .getElementById("apply-promo")
+          .addEventListener("click", function () {
+            const promoCode = document
+              .getElementById("promo-code")
+              .value.trim()
+              .toUpperCase();
+
+            if (promoCode === "ORGANIC10") {
+              // Apply 10% discount
+              const discount = subtotal * 0.1;
+              total = subtotal - discount + shipping + tax;
+
+              // Update total in the DOM
+              document.getElementById("total").textContent =
+                `$${total.toFixed(2)}`;
+
+              // Add discount line
+              const orderTotals = document.querySelector(".order-totals");
+              const discountElement = document.createElement("div");
+              discountElement.className = "order-discount";
+              discountElement.innerHTML = `
+            <span>Discount (10%)</span>
+            <span>-$${discount.toFixed(2)}</span>
+          `;
+
+              // Insert before total
+              orderTotals.insertBefore(
+                discountElement,
+                document.querySelector(".order-total"),
+              );
+
+              // Disable the button and show success message
+              this.disabled = true;
+              document.getElementById("promo-code").disabled = true;
+
+              const successMessage = document.createElement("p");
+              successMessage.className = "promo-success";
+              successMessage.textContent = "Promo code applied successfully!";
+              document.querySelector(".promo-code").appendChild(successMessage);
+            } else if (promoCode) {
+              // Show error for invalid promo code
+              const errorMessage = document.createElement("p");
+              errorMessage.className = "promo-error";
+              errorMessage.textContent = "Invalid promo code";
+              document.querySelector(".promo-code").appendChild(errorMessage);
+
+              // Remove error message after 3 seconds
+              setTimeout(() => {
+                errorMessage.remove();
+              }, 3000);
+            }
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Forum - TerraCraft</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="forum-styles.css" />
+  </head>
+  <body>
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+      <!-- Header (Fixed) -->
+      <header class="site-header" role="banner">
+        <div class="header-content">
+          <div class="logo">
+            <a href="index.html">TerraCraft</a>
+          </div>
+          <nav class="main-nav" aria-label="Main navigation">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="store.html">Store</a></li>
+              <li>
+                <a href="forum.html" aria-current="page">Community Forum</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="user-menu">
+            <button
+              id="login-button"
+              class="login-button"
+              aria-label="Log in to your account"
+            >
+              Log In
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main id="main-content" class="page-content" tabindex="-1">
+        <div class="content-wrapper">
+          <div class="page-header forum-header">
+            <h1>Community Forum</h1>
+            <p>
+              Connect with fellow organic farmers, share experiences, and learn
+              together
+            </p>
+            <div class="forum-actions">
+              <button
+                id="new-topic-button"
+                class="primary-button"
+                aria-label="Create a new topic"
+              >
+                New Topic
+              </button>
+              <div class="forum-search">
+                <label for="forum-search-input" class="visually-hidden"
+                  >Search the forum</label
+                >
+                <input
+                  type="search"
+                  id="forum-search-input"
+                  placeholder="Search forum..."
+                  class="search-input"
+                />
+                <button
+                  class="search-button"
+                  aria-label="Search"
+                  id="search-button"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="forum-layout">
+            <!-- Forum Sidebar -->
+            <aside class="forum-sidebar">
+              <div class="sidebar-section">
+                <h2>Forum Categories</h2>
+                <nav aria-label="Forum categories">
+                  <ul class="category-list">
+                    <li>
+                      <a
+                        href="#general"
+                        class="category-link active"
+                        data-category="general"
+                        >General Discussion</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#growing"
+                        class="category-link"
+                        data-category="growing"
+                        >Growing Techniques</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#pests"
+                        class="category-link"
+                        data-category="pests"
+                        >Pest & Disease Control</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#soil" class="category-link" data-category="soil"
+                        >Soil Health</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#equipment"
+                        class="category-link"
+                        data-category="equipment"
+                        >Tools & Equipment</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#market"
+                        class="category-link"
+                        data-category="market"
+                        >Marketing & Sales</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="#beginners"
+                        class="category-link"
+                        data-category="beginners"
+                        >Beginner's Corner</a
+                      >
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+
+              <div class="sidebar-section">
+                <h2>Community Stats</h2>
+                <ul class="stats-list">
+                  <li>
+                    <span class="stats-label">Members:</span>
+                    <span class="stats-value">1,245</span>
+                  </li>
+                  <li>
+                    <span class="stats-label">Topics:</span>
+                    <span class="stats-value">3,872</span>
+                  </li>
+                  <li>
+                    <span class="stats-label">Posts:</span>
+                    <span class="stats-value">15,639</span>
+                  </li>
+                  <li>
+                    <span class="stats-label">Online Now:</span>
+                    <span class="stats-value">42</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="sidebar-section">
+                <h2>Forum Guidelines</h2>
+                <ul class="guidelines-list">
+                  <li>Be respectful and supportive</li>
+                  <li>Stay on topic within categories</li>
+                  <li>Share knowledge freely</li>
+                  <li>Cite sources when possible</li>
+                  <li>No promotional content</li>
+                </ul>
+                <a href="#guidelines" class="text-link">Read full guidelines</a>
+              </div>
+            </aside>
+
+            <!-- Forum Main Content -->
+            <div class="forum-main">
+              <section
+                id="general"
+                class="forum-category active"
+                aria-labelledby="general-heading"
+              >
+                <div class="category-header">
+                  <h2 id="general-heading">General Discussion</h2>
+                  <p>
+                    Open discussions about organic farming and sustainable
+                    agriculture
+                  </p>
+                </div>
+
+                <div class="topic-list">
+                  <div class="topic-list-header">
+                    <div class="topic-title">Topic</div>
+                    <div class="topic-stats">
+                      <span>Replies</span>
+                      <span>Views</span>
+                    </div>
+                    <div class="topic-last-post">Last Post</div>
+                  </div>
+
+                  <article class="topic-item">
+                    <div class="topic-title">
+                      <a href="forum-topic.html?id=1" class="topic-link">
+                        <h3>Welcome to the Organic Farming Hub Forum!</h3>
+                      </a>
+                      <div class="topic-meta">
+                        <span class="topic-author">by Admin</span>
+                        <span class="topic-date">June 15, 2023</span>
+                      </div>
+                    </div>
+                    <div class="topic-stats">
+                      <span>24</span>
+                      <span>1,245</span>
+                    </div>
+                    <div class="topic-last-post">
+                      <div class="last-post-info">
+                        <span class="last-post-author">GreenThumb</span>
+                        <span class="last-post-date">2 hours ago</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="topic-item">
+                    <div class="topic-title">
+                      <a href="forum-topic.html?id=2" class="topic-link">
+                        <h3>
+                          How do you handle drought conditions in organic
+                          farming?
+                        </h3>
+                      </a>
+                      <div class="topic-meta">
+                        <span class="topic-author">by FarmFresh</span>
+                        <span class="topic-date">July 3, 2023</span>
+                      </div>
+                    </div>
+                    <div class="topic-stats">
+                      <span>18</span>
+                      <span>876</span>
+                    </div>
+                    <div class="topic-last-post">
+                      <div class="last-post-info">
+                        <span class="last-post-author">SoilMaster</span>
+                        <span class="last-post-date">Yesterday</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="topic-item">
+                    <div class="topic-title">
+                      <a href="forum-topic.html?id=3" class="topic-link">
+                        <h3>
+                          Introducing myself - New organic farmer from Colorado
+                        </h3>
+                      </a>
+                      <div class="topic-meta">
+                        <span class="topic-author">by MountainGrower</span>
+                        <span class="topic-date">July 10, 2023</span>
+                      </div>
+                    </div>
+                    <div class="topic-stats">
+                      <span>12</span>
+                      <span>345</span>
+                    </div>
+                    <div class="topic-last-post">
+                      <div class="last-post-info">
+                        <span class="last-post-author">OrganicPro</span>
+                        <span class="last-post-date">3 days ago</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="topic-item">
+                    <div class="topic-title">
+                      <a href="forum-topic.html?id=4" class="topic-link">
+                        <h3>
+                          What's your favorite crop rotation strategy for small
+                          farms?
+                        </h3>
+                      </a>
+                      <div class="topic-meta">
+                        <span class="topic-author">by RotationMaster</span>
+                        <span class="topic-date">July 15, 2023</span>
+                      </div>
+                    </div>
+                    <div class="topic-stats">
+                      <span>32</span>
+                      <span>1,102</span>
+                    </div>
+                    <div class="topic-last-post">
+                      <div class="last-post-info">
+                        <span class="last-post-author">FarmFresh</span>
+                        <span class="last-post-date">Today</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="topic-item">
+                    <div class="topic-title">
+                      <a href="forum-topic.html?id=5" class="topic-link">
+                        <h3>
+                          Monthly discussion: Challenges and successes (July
+                          2023)
+                        </h3>
+                      </a>
+                      <div class="topic-meta">
+                        <span class="topic-author">by Admin</span>
+                        <span class="topic-date">July 1, 2023</span>
+                      </div>
+                    </div>
+                    <div class="topic-stats">
+                      <span>45</span>
+                      <span>1,567</span>
+                    </div>
+                    <div class="topic-last-post">
+                      <div class="last-post-info">
+                        <span class="last-post-author">HappyHarvester</span>
+                        <span class="last-post-date">1 hour ago</span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="pagination">
+                  <span class="current-page">Page 1 of 12</span>
+                  <div class="page-controls">
+                    <button
+                      class="page-button"
+                      aria-label="Previous page"
+                      disabled
+                    >
+                      &laquo; Prev
+                    </button>
+                    <button class="page-button" aria-label="Next page">
+                      Next &raquo;
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Other category sections would be dynamically loaded -->
+            </div>
+
+            <!-- Forum Right Sidebar -->
+            <aside class="forum-right-sidebar">
+              <div class="sidebar-section">
+                <h2>Active Users</h2>
+                <ul class="active-users-list">
+                  <li>
+                    <div class="user-avatar">
+                      <img
+                        src="https://placehold.co/30x30"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div class="user-info">
+                      <span class="user-name">GreenThumb</span>
+                      <span class="user-status online">Online</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="user-avatar">
+                      <img
+                        src="https://placehold.co/30x30"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div class="user-info">
+                      <span class="user-name">SoilMaster</span>
+                      <span class="user-status online">Online</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="user-avatar">
+                      <img
+                        src="https://placehold.co/30x30"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div class="user-info">
+                      <span class="user-name">OrganicPro</span>
+                      <span class="user-status online">Online</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="user-avatar">
+                      <img
+                        src="https://placehold.co/30x30"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div class="user-info">
+                      <span class="user-name">FarmFresh</span>
+                      <span class="user-status online">Online</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="user-avatar">
+                      <img
+                        src="https://placehold.co/30x30"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div class="user-info">
+                      <span class="user-name">HappyHarvester</span>
+                      <span class="user-status online">Online</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="sidebar-section">
+                <h2>Recent Topics</h2>
+                <ul class="recent-topics-list">
+                  <li>
+                    <a href="forum-topic.html?id=10">
+                      Best organic fertilizers for tomatoes?
+                    </a>
+                  </li>
+                  <li>
+                    <a href="forum-topic.html?id=11">
+                      How to identify beneficial insects
+                    </a>
+                  </li>
+                  <li>
+                    <a href="forum-topic.html?id=12">
+                      Organic certification process help
+                    </a>
+                  </li>
+                  <li>
+                    <a href="forum-topic.html?id=13">
+                      Winter cover crops for zone 5
+                    </a>
+                  </li>
+                  <li>
+                    <a href="forum-topic.html?id=14">
+                      DIY irrigation systems that work
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="sidebar-section">
+                <h2>Upcoming Events</h2>
+                <ul class="events-list">
+                  <li>
+                    <div class="event-date">Jul 25</div>
+                    <div class="event-details">
+                      <a href="#event1">Virtual Seed Saving Workshop</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="event-date">Aug 5</div>
+                    <div class="event-details">
+                      <a href="#event2">Organic Pest Management Webinar</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="event-date">Aug 12</div>
+                    <div class="event-details">
+                      <a href="#event3">Community Harvest Festival Planning</a>
+                    </div>
+                  </li>
+                </ul>
+                <a href="#events" class="text-link">View all events</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </main>
+
+      <!-- Login Modal -->
+      <div id="login-modal" class="modal-overlay" aria-hidden="true">
+        <div
+          class="modal-content login-modal"
+          role="dialog"
+          aria-labelledby="login-heading"
+        >
+          <h2 id="login-heading" tabindex="-1">Log In to Your Account</h2>
+          <form id="login-form">
+            <div class="form-group">
+              <label for="username">Username or Email</label>
+              <input
+                type="text"
+                id="username"
+                class="form-input"
+                required
+                autocomplete="username"
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-input"
+                required
+                autocomplete="current-password"
+              />
+            </div>
+            <div class="form-group remember-me">
+              <input type="checkbox" id="remember-me" />
+              <label for="remember-me">Remember me</label>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="primary-button">Log In</button>
+              <button
+                type="button"
+                class="close-button"
+                id="close-login-button"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+          <div class="login-footer">
+            <a href="#forgot-password">Forgot password?</a>
+            <a href="#register">Create an account</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Topic Modal -->
+      <div id="new-topic-modal" class="modal-overlay" aria-hidden="true">
+        <div
+          class="modal-content new-topic-modal"
+          role="dialog"
+          aria-labelledby="new-topic-heading"
+        >
+          <h2 id="new-topic-heading" tabindex="-1">Create New Topic</h2>
+          <form id="new-topic-form">
+            <div class="form-group">
+              <label for="topic-category">Category</label>
+              <select id="topic-category" class="form-select" required>
+                <option value="">Select a category</option>
+                <option value="general">General Discussion</option>
+                <option value="growing">Growing Techniques</option>
+                <option value="pests">Pest & Disease Control</option>
+                <option value="soil">Soil Health</option>
+                <option value="equipment">Tools & Equipment</option>
+                <option value="market">Marketing & Sales</option>
+                <option value="beginners">Beginner's Corner</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="topic-title">Topic Title</label>
+              <input
+                type="text"
+                id="topic-title"
+                class="form-input"
+                required
+                placeholder="Enter a descriptive title"
+              />
+            </div>
+            <div class="form-group">
+              <label for="topic-content">Content</label>
+              <textarea
+                id="topic-content"
+                class="form-textarea"
+                required
+                placeholder="Share your thoughts, questions, or experiences..."
+                rows="8"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="topic-tags">Tags (optional)</label>
+              <input
+                type="text"
+                id="topic-tags"
+                class="form-input"
+                placeholder="Separate tags with commas"
+              />
+              <span class="form-hint"
+                >Example: soil health, tomatoes, beginner</span
+              >
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="primary-button">Create Topic</button>
+              <button
+                type="button"
+                class="close-button"
+                id="close-new-topic-button"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="content-wrapper">
+          <div class="footer-content">
+            <div class="footer-section">
+              <h3>TerraCraft</h3>
+              <p>Your complete guide to successful organic farming</p>
+            </div>
+            <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="forum.html">Community Forum</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3>Connect With Us</h3>
+              <div class="social-links">
+                <a href="#" aria-label="Facebook">Facebook</a>
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
+              </div>
+            </div>
+          </div>
+          <div class="copyright">
+            <p>&copy;  2025 TerraCraft. All  fuckin rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Notification Area -->
+      <div
+        id="notification-area"
+        aria-live="assertive"
+        class="notification-area"
+        role="alert"
+      ></div>
+    </div>
+
+    <script src="forum.js"></script>
+  </body>
+</html>

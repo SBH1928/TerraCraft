@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - Organic Store</title>
+    <link rel="stylesheet" href="store.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="site-header">
+        <nav class="main-nav">
+          <h1 class="site-title">Organic Store</h1>
+          <div class="nav-links">
+            <a class="nav-link" href="store.html">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+            <a href="#" class="nav-link">Forum</a>
+          </div>
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a href="cart.html" class="cart-button">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart (</span>
+            <span id="cart-count">0</span>
+            <span>)</span>
+          </a>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu">
+          <a href="store.html" class="mobile-nav-link">Home</a>
+          <a href="#" class="mobile-nav-link">About</a>
+          <a href="#" class="mobile-nav-link">Contact</a>
+          <a href="#" class="mobile-nav-link">Forum</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <div class="breadcrumb">
+          <a href="store.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span id="product-category">Category</span>
+          <span class="breadcrumb-separator">/</span>
+          <span id="product-name-breadcrumb">Product Name</span>
+        </div>
+
+        <div class="product-detail-container">
+          <div class="product-detail-left">
+            <div class="product-main-image-container">
+              <img
+                id="product-main-image"
+                src=""
+                alt=""
+                class="product-main-image"
+              />
+            </div>
+            <div class="product-thumbnails" id="product-thumbnails">
+              <!-- Thumbnails will be added by JavaScript -->
+            </div>
+          </div>
+
+          <div class="product-detail-right">
+            <h1 id="product-name" class="product-detail-title">Product Name</h1>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(24 reviews)</span>
+            </div>
+
+            <p id="product-price" class="product-detail-price">$0.00</p>
+
+            <div class="product-availability">
+              <i class="fas fa-check-circle"></i>
+              <span>In Stock</span>
+            </div>
+
+            <p id="product-description" class="product-detail-description">
+              Product description will be loaded here.
+            </p>
+
+            <div class="product-quantity">
+              <label for="quantity">Quantity:</label>
+              <div class="quantity-controls">
+                <button id="decrease-quantity" class="quantity-btn">-</button>
+                <input
+                  type="number"
+                  id="quantity"
+                  value="1"
+                  min="1"
+                  class="quantity-input"
+                />
+                <button id="increase-quantity" class="quantity-btn">+</button>
+              </div>
+            </div>
+
+            <button id="add-to-cart" class="add-to-cart-detail">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+
+            <div class="product-meta">
+              <div class="meta-item">
+                <span class="meta-label">SKU:</span>
+                <span id="product-sku" class="meta-value">ORG-001</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Category:</span>
+                <span id="product-category-meta" class="meta-value"
+                  >Category</span
+                >
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Tags:</span>
+                <span id="product-tags" class="meta-value"
+                  >organic, garden</span
+                >
+              </div>
+            </div>
+
+            <div class="product-share">
+              <span>Share:</span>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-pinterest-p"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-tabs">
+          <div class="tabs-header">
+            <button class="tab-btn active" data-tab="description">
+              Description
+            </button>
+            <button class="tab-btn" data-tab="specifications">
+              Specifications
+            </button>
+            <button class="tab-btn" data-tab="reviews">Reviews</button>
+          </div>
+
+          <div class="tab-content active" id="description-tab">
+            <h3>Product Description</h3>
+            <div id="product-long-description">
+              <p>Detailed product description will be loaded here.</p>
+            </div>
+
+            <div class="product-features">
+              <h4>Key Features</h4>
+              <ul id="product-features">
+                <!-- Features will be added by JavaScript -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="tab-content" id="specifications-tab">
+            <h3>Product Specifications</h3>
+            <table class="specifications-table">
+              <tbody id="product-specifications">
+                <!-- Specifications will be added by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tab-content" id="reviews-tab">
+            <h3>Customer Reviews</h3>
+            <div class="reviews-summary">
+              <div class="average-rating">
+                <div class="big-rating">4.5</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="total-reviews">Based on 24 reviews</div>
+              </div>
+              <div class="rating-bars">
+                <div class="rating-bar-item">
+                  <span>5 stars</span>
+                  <div class="rating-bar">
+                    <div class="rating-fill" style="width: 70%"></div>
+                  </div>
+                  <span>70%</span>
+                </div>
+                <div class="rating-bar-item">
+                  <span>4 stars</span>
+                  <div class="rating-bar">
+                    <div class="rating-fill" style="width: 20%"></div>
+                  </div>
+                  <span>20%</span>
+                </div>
+                <div class="rating-bar-item">
+                  <span>3 stars</span>
+                  <div class="rating-bar">
+                    <div class="rating-fill" style="width: 5%"></div>
+                  </div>
+                  <span>5%</span>
+                </div>
+                <div class="rating-bar-item">
+                  <span>2 stars</span>
+                  <div class="rating-bar">
+                    <div class="rating-fill" style="width: 3%"></div>
+                  </div>
+                  <span>3%</span>
+                </div>
+                <div class="rating-bar-item">
+                  <span>1 star</span>
+                  <div class="rating-bar">
+                    <div class="rating-fill" style="width: 2%"></div>
+                  </div>
+                  <span>2%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="reviews-list" id="reviews-list">
+              <!-- Reviews will be added by JavaScript -->
+            </div>
+
+            <div class="add-review">
+              <h4>Add a Review</h4>
+              <form id="review-form" class="review-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="review-name">Your Name</label>
+                    <input type="text" id="review-name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="review-email">Your Email</label>
+                    <input type="email" id="review-email" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Your Rating</label>
+                  <div class="rating-select">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="review-text">Your Review</label>
+                  <textarea id="review-text" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-review-btn">
+                  Submit Review
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <section class="related-products">
+          <h2 class="section-title">Related Products</h2>
+          <div class="products-grid" id="related-products">
+            <!-- Related products will be added by JavaScript -->
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-content">
+          <section class="footer-section">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="store.html" class="footer-link">Home</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">About Us</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Products</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Contact</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Categories</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="#" class="footer-link">Tools</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Seeds</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Fertilizers</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Community</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="#" class="footer-link">Forum</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Blog</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Events</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p class="footer-text">Email: info@terracraft.com</p>
+            <p class="footer-text">Phone: (555) 123-4567</p>
+            <p class="footer-text">Address: 123 Green Street, Earth City</p>
+          </section>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 TerraCraft. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Product database with extended information
+        const productsDB = [
+          {
+            id: 1,
+            name: "Organic Garden Tools Set",
+            price: 49.99,
+            category: "tools",
+            image:
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Garden+Tools",
+            description:
+              "Complete set of essential garden tools made from sustainable materials.",
+            longDescription:
+              "This comprehensive set of gardening tools is designed for the eco-conscious gardener. Each tool is crafted from sustainable bamboo handles and durable stainless steel components that resist rust and wear. The ergonomic design reduces strain during extended use, making gardening more comfortable and enjoyable. This set includes everything you need to maintain your organic garden throughout the seasons.",
+            sku: "T-GT-001",
+            tags: ["tools", "gardening", "sustainable", "eco-friendly"],
+            features: [
+              "Ergonomic bamboo handles for comfortable grip",
+              "Durable stainless steel components",
+              "Includes hand trowel, cultivator, weeder, pruning shears, and garden fork",
+              "Comes with a canvas storage bag made from organic cotton",
+              "Lifetime warranty against manufacturing defects",
+            ],
+            specifications: [
+              { name: "Material", value: "Bamboo and stainless steel" },
+              { name: "Number of Tools", value: "5 pieces" },
+              { name: "Storage Bag", value: "Included" },
+              { name: "Handle Length", value: "5 inches (12.7 cm)" },
+              { name: "Total Weight", value: "2.5 lbs (1.13 kg)" },
+              { name: "Warranty", value: "Lifetime" },
+            ],
+            images: [
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Garden+Tools+1",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Garden+Tools+2",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Garden+Tools+3",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Garden+Tools+4",
+            ],
+            reviews: [
+              {
+                name: "Sarah Johnson",
+                date: "2023-05-15",
+                rating: 5,
+                text: "These tools are amazing! The bamboo handles feel great in my hands and the tools are very durable. I've been using them for months and they still look brand new.",
+              },
+              {
+                name: "Michael Thompson",
+                date: "2023-04-22",
+                rating: 4,
+                text: "Great quality tools. The canvas bag is a nice touch for storage. I would have given 5 stars but the pruning shears could be a bit sharper.",
+              },
+              {
+                name: "Emily Davis",
+                date: "2023-06-10",
+                rating: 5,
+                text: "Perfect set for my small organic garden. I love that they're made from sustainable materials. Highly recommend!",
+              },
+            ],
+            relatedProducts: [4, 6, 7],
+          },
+          {
+            id: 2,
+            name: "Heirloom Tomato Seeds",
+            price: 4.99,
+            category: "seeds",
+            image:
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Tomato+Seeds",
+            description:
+              "Non-GMO heirloom tomato seeds for growing delicious organic tomatoes.",
+            longDescription:
+              "Our heirloom tomato seed collection features five distinct varieties that have been passed down through generations of gardeners. These non-GMO, open-pollinated seeds produce tomatoes with exceptional flavor profiles that you won't find in store-bought varieties. Each packet contains carefully selected seeds with high germination rates, allowing you to grow a diverse array of tomatoes in your home garden. These varieties have been chosen for their disease resistance and productivity.",
+            sku: "S-TS-002",
+            tags: ["seeds", "tomatoes", "heirloom", "non-GMO", "organic"],
+            features: [
+              "Contains 5 heirloom tomato varieties: Brandywine, Cherokee Purple, Green Zebra, Black Krim, and San Marzano",
+              "Non-GMO and open-pollinated seeds",
+              "High germination rate (90%+)",
+              "Detailed growing instructions included",
+              "Seeds are packed in moisture-proof, resealable packets",
+            ],
+            specifications: [
+              { name: "Varieties", value: "5 different heirloom types" },
+              { name: "Seeds per Variety", value: "25 seeds each" },
+              { name: "Germination Rate", value: "90%+" },
+              { name: "Growing Zone", value: "3-9" },
+              { name: "Days to Maturity", value: "70-85 days" },
+              {
+                name: "Organic Certification",
+                value: "USDA Certified Organic",
+              },
+            ],
+            images: [
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Tomato+Seeds+1",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Tomato+Seeds+2",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Tomato+Seeds+3",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Tomato+Seeds+4",
+            ],
+            reviews: [
+              {
+                name: "Robert Wilson",
+                date: "2023-03-18",
+                rating: 5,
+                text: "I've tried many tomato seeds over the years, but these are by far the best. Great germination rate and the tomatoes taste amazing!",
+              },
+              {
+                name: "Jennifer Adams",
+                date: "2023-04-05",
+                rating: 5,
+                text: "The variety in this pack is wonderful. I especially love the Cherokee Purple - such a unique flavor that you can't find in stores.",
+              },
+              {
+                name: "David Martinez",
+                date: "2023-05-30",
+                rating: 4,
+                text: "Good quality seeds with excellent germination. The growing instructions were very helpful for a beginner like me.",
+              },
+            ],
+            relatedProducts: [5, 8, 3],
+          },
+          {
+            id: 3,
+            name: "Natural Fertilizer",
+            price: 19.99,
+            category: "fertilizers",
+            image: "https://placehold.co/600x600/2c5530/FFFFFF?text=Fertilizer",
+            description:
+              "100% organic fertilizer that enriches soil and promotes healthy plant growth.",
+            longDescription:
+              "Our premium natural fertilizer is crafted from a proprietary blend of composted plant matter, worm castings, bat guano, and beneficial microorganisms. This balanced formula provides essential nutrients that release slowly over time, feeding your plants for up to three months with a single application. Unlike chemical fertilizers, our natural blend improves soil structure, enhances water retention, and promotes the growth of beneficial soil microbes, creating a sustainable growing environment for your organic garden.",
+            sku: "F-NF-003",
+            tags: ["fertilizer", "organic", "soil", "plant food", "compost"],
+            features: [
+              "100% organic ingredients with no synthetic chemicals",
+              "Balanced NPK ratio (4-4-4) suitable for most garden plants",
+              "Slow-release formula feeds plants for up to 3 months",
+              "Contains beneficial soil microbes to improve soil health",
+              "Safe for use around children and pets",
+              "OMRI Listed for organic gardening",
+            ],
+            specifications: [
+              { name: "Weight", value: "5 lbs (2.27 kg)" },
+              { name: "NPK Ratio", value: "4-4-4" },
+              { name: "Coverage", value: "250 sq ft" },
+              { name: "Application Rate", value: "1 lb per 50 sq ft" },
+              { name: "Feeding Duration", value: "Up to 3 months" },
+              { name: "Certification", value: "OMRI Listed" },
+            ],
+            images: [
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Fertilizer+1",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Fertilizer+2",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Fertilizer+3",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Fertilizer+4",
+            ],
+            reviews: [
+              {
+                name: "Patricia Garcia",
+                date: "2023-04-12",
+                rating: 5,
+                text: "This fertilizer has transformed my garden! My vegetables are growing faster and look healthier than ever before.",
+              },
+              {
+                name: "Thomas Brown",
+                date: "2023-05-20",
+                rating: 4,
+                text: "Great product that really works. My only complaint is the smell when first applied, but it dissipates after a day or two.",
+              },
+              {
+                name: "Lisa Chen",
+                date: "2023-06-15",
+                rating: 5,
+                text: "I love that this is completely organic and safe to use around my kids and pets. My plants are thriving!",
+              },
+            ],
+            relatedProducts: [7, 2, 5],
+          },
+          {
+            id: 4,
+            name: "Bamboo Plant Stakes",
+            price: 12.99,
+            category: "tools",
+            image:
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Plant+Stakes",
+            description:
+              "Sustainable bamboo stakes to support growing plants in your garden.",
+            longDescription:
+              "Our bamboo plant stakes provide reliable support for your growing plants while maintaining the natural aesthetic of your garden. Made from 100% natural, sustainably harvested bamboo, these stakes are stronger than wood and naturally resistant to rot, mold, and insects. The smooth surface prevents damage to delicate plant stems, and their natural appearance blends beautifully with your garden landscape. Each stake is carefully selected for quality and durability to last multiple growing seasons.",
+            sku: "T-PS-004",
+            tags: ["tools", "bamboo", "plant support", "stakes", "sustainable"],
+            features: [
+              "Made from 100% natural, sustainably harvested bamboo",
+              "Naturally resistant to rot, mold, and insects",
+              "Smooth surface prevents damage to plant stems",
+              "Available in multiple lengths to support various plant types",
+              "Reusable for multiple growing seasons",
+              "Biodegradable at end of life",
+            ],
+            specifications: [
+              { name: "Material", value: "Natural Bamboo" },
+              { name: "Quantity", value: "25 stakes per pack" },
+              { name: "Lengths", value: "2ft, 3ft, and 4ft options" },
+              { name: "Diameter", value: "8-10mm" },
+              { name: "Weight", value: "1.2 lbs (0.54 kg)" },
+              { name: "Finish", value: "Natural, uncoated" },
+            ],
+            images: [
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Plant+Stakes+1",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Plant+Stakes+2",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Plant+Stakes+3",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Plant+Stakes+4",
+            ],
+            reviews: [
+              {
+                name: "James Wilson",
+                date: "2023-04-25",
+                rating: 5,
+                text: "These stakes are perfect for my tomato plants. They're strong enough to support heavy fruit and look much nicer than metal stakes.",
+              },
+              {
+                name: "Karen Miller",
+                date: "2023-05-10",
+                rating: 4,
+                text: "Good quality bamboo stakes. I've used them for two seasons now and they're still in great condition.",
+              },
+              {
+                name: "John Taylor",
+                date: "2023-06-02",
+                rating: 5,
+                text: "I appreciate that these are sustainably harvested. They work great for my climbing beans and peas.",
+              },
+            ],
+            relatedProducts: [1, 6, 3],
+          },
+          {
+            id: 5,
+            name: "Organic Herb Seeds Mix",
+            price: 7.99,
+            category: "seeds",
+            image: "https://placehold.co/600x600/2c5530/FFFFFF?text=Herb+Seeds",
+            description:
+              "Collection of essential culinary herb seeds for your organic garden.",
+            longDescription:
+              "Grow your own fresh culinary herbs with our premium organic herb seed collection. This carefully curated mix includes ten popular cooking herbs that will enhance your home-cooked meals with fresh flavors while adding beauty to your garden or windowsill. All seeds are certified organic, non-GMO, and open-pollinated, allowing you to save seeds for future plantings. Each variety comes in its own labeled packet with detailed growing instructions to ensure gardening success, whether you're a beginner or experienced grower.",
+            sku: "S-HS-005",
+            tags: ["seeds", "herbs", "culinary", "organic", "kitchen garden"],
+            features: [
+              "Contains 10 popular culinary herbs: Basil, Chives, Cilantro, Dill, Oregano, Parsley, Rosemary, Sage, Thyme, and Mint",
+              "All seeds are certified organic and non-GMO",
+              "High germination rates (85%+)",
+              "Suitable for outdoor gardens or indoor containers",
+              "Detailed growing instructions for each herb variety",
+              "Attractive packaging makes this a perfect gift for food enthusiasts",
+            ],
+            specifications: [
+              { name: "Varieties", value: "10 different herbs" },
+              { name: "Seeds per Variety", value: "Varies by herb type" },
+              { name: "Germination Rate", value: "85%+" },
+              { name: "Growing Zone", value: "4-9 (outdoor)" },
+              {
+                name: "Indoor Growing",
+                value: "Suitable for windowsill gardens",
+              },
+              {
+                name: "Organic Certification",
+                value: "USDA Certified Organic",
+              },
+            ],
+            images: [
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Herb+Seeds+1",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Herb+Seeds+2",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Herb+Seeds+3",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Herb+Seeds+4",
+            ],
+            reviews: [
+              {
+                name: "Maria Rodriguez",
+                date: "2023-03-30",
+                rating: 5,
+                text: "I've started a small herb garden on my balcony with these seeds and they're all growing beautifully! The basil and cilantro germinated in just a few days.",
+              },
+              {
+                name: "Steven Lee",
+                date: "2023-04-18",
+                rating: 4,
+                text: "Good variety of herbs that I use regularly in cooking. The growing instructions were very helpful.",
+              },
+              {
+                name: "Amanda White",
+                date: "2023-05-25",
+                rating: 5,
+                text: "Bought this as a gift for my mom who loves cooking, and she was thrilled! All the seeds sprouted and she's already using fresh herbs in her recipes.",
+              },
+            ],
+            relatedProducts: [2, 8, 3],
+          },
+          {
+            id: 6,
+            name: "Compost Bin",
+            price: 34.99,
+            category: "tools",
+            image:
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Compost+Bin",
+            description:
+              "Efficient compost bin for converting kitchen waste into rich garden soil.",
+            longDescription:
+              "Transform your kitchen scraps and yard waste into nutrient-rich compost with our efficient composting system. Designed for ease of use and maximum decomposition efficiency, this compost bin features adjustable ventilation to control airflow and moisture levels. The dual-chamber design allows you to add fresh waste to one side while mature compost develops in the other, providing a continuous supply of organic fertilizer for your garden. Made from recycled, UV-resistant plastic, this bin is durable enough to withstand outdoor conditions year-round.",
+            sku: "T-CB-006",
+            tags: ["tools", "compost", "recycling", "soil", "waste management"],
+            features: [
+              "37-gallon (140 liter) capacity - perfect for average households",
+              "Dual-chamber design for continuous composting",
+              "Adjustable ventilation system to control decomposition rate",
+              "Secure latching lid keeps pests out while allowing easy access",
+              "Made from 100% recycled, UV-resistant plastic",
+              "Includes comprehensive composting guide for beginners",
+            ],
+            specifications: [
+              { name: "Capacity", value: "37 gallons (140 liters)" },
+              {
+                name: "Dimensions",
+                value: '24" x 24" x 36" (61 x 61 x 91 cm)',
+              },
+              { name: "Weight", value: "15 lbs (6.8 kg)" },
+              { name: "Material", value: "Recycled UV-resistant plastic" },
+              { name: "Color", value: "Black with green accents" },
+              { name: "Assembly", value: "Simple tool-free assembly" },
+            ],
+            images: [
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Compost+Bin+1",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Compost+Bin+2",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Compost+Bin+3",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Compost+Bin+4",
+            ],
+            reviews: [
+              {
+                name: "Richard Cooper",
+                date: "2023-04-02",
+                rating: 5,
+                text: "This compost bin has revolutionized my gardening. It's easy to use, doesn't smell, and produces amazing compost for my vegetable garden.",
+              },
+              {
+                name: "Nancy Parker",
+                date: "2023-05-15",
+                rating: 4,
+                text: "Well-designed bin that was easy to assemble. The dual-chamber feature is very convenient. Only giving 4 stars because the lid can be a bit tricky to secure.",
+              },
+              {
+                name: "George Washington",
+                date: "2023-06-08",
+                rating: 5,
+                text: "As a first-time composter, I found this bin perfect for beginners. The included guide was very helpful, and I'm already seeing great results.",
+              },
+            ],
+            relatedProducts: [1, 4, 3],
+          },
+          {
+            id: 7,
+            name: "Organic Pest Control Spray",
+            price: 14.99,
+            category: "fertilizers",
+            image:
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Pest+Control",
+            description:
+              "Natural pest control solution that's safe for plants, pets, and the environment.",
+            longDescription:
+              "Keep garden pests at bay without harmful chemicals using our organic pest control spray. This effective formula uses a blend of essential oils and plant extracts that repel and control common garden pests while being completely safe for beneficial insects like bees and ladybugs. The concentrated formula is diluted with water and can be applied directly to plants without risk of burning or damage. Regular application helps prevent infestations of aphids, spider mites, whiteflies, and other common garden pests without introducing toxic substances into your organic garden ecosystem.",
+            sku: "F-PC-007",
+            tags: [
+              "fertilizers",
+              "pest control",
+              "organic",
+              "plant care",
+              "essential oils",
+            ],
+            features: [
+              "100% natural ingredients derived from plant extracts and essential oils",
+              "Effective against aphids, spider mites, whiteflies, and other common garden pests",
+              "Safe for beneficial insects including bees, ladybugs, and butterflies",
+              "Can be used up to day of harvest on edible plants",
+              "Concentrated formula makes up to 2 gallons of spray",
+              "Pleasant herbal scent unlike harsh chemical pesticides",
+            ],
+            specifications: [
+              { name: "Volume", value: "16 fl oz (473 ml) concentrate" },
+              { name: "Coverage", value: "Makes up to 2 gallons of spray" },
+              { name: "Application", value: "Foliar spray" },
+              {
+                name: "Active Ingredients",
+                value: "Neem oil, rosemary oil, thyme oil, peppermint oil",
+              },
+              { name: "Reapplication", value: "Every 7-14 days as needed" },
+              {
+                name: "Certification",
+                value: "OMRI Listed for organic gardening",
+              },
+            ],
+            images: [
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Pest+Control+1",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Pest+Control+2",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Pest+Control+3",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Pest+Control+4",
+            ],
+            reviews: [
+              {
+                name: "Laura Johnson",
+                date: "2023-04-10",
+                rating: 5,
+                text: "This spray saved my tomato plants from aphids without harming the beneficial insects in my garden. I love that it's completely natural and safe.",
+              },
+              {
+                name: "Mark Williams",
+                date: "2023-05-05",
+                rating: 4,
+                text: "Works well on most pests, though I found I needed to apply it more frequently than suggested for spider mites. The smell is pleasant and not overwhelming.",
+              },
+              {
+                name: "Susan Miller",
+                date: "2023-06-20",
+                rating: 5,
+                text: "Finally a pest control product I can feel good about using around my children and pets. It's effective and doesn't leave any harmful residue.",
+              },
+            ],
+            relatedProducts: [3, 1, 6],
+          },
+          {
+            id: 8,
+            name: "Vegetable Seeds Variety Pack",
+            price: 15.99,
+            category: "seeds",
+            image:
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Veggie+Seeds",
+            description:
+              "Assortment of organic vegetable seeds to start your home garden.",
+            longDescription:
+              "Start your own organic vegetable garden with our comprehensive seed variety pack. This collection includes 15 popular vegetable varieties, carefully selected for their flavor, productivity, and ease of growing. All seeds are certified organic, non-GMO, and open-pollinated, allowing you to save seeds from your harvest for future plantings. Each variety comes in its own labeled packet with detailed growing instructions, planting depth, spacing recommendations, and harvesting tips. This pack provides everything a beginner or experienced gardener needs to grow a diverse and productive vegetable garden.",
+            sku: "S-VS-008",
+            tags: ["seeds", "vegetables", "garden", "organic", "non-GMO"],
+            features: [
+              "15 popular vegetable varieties including tomatoes, lettuce, carrots, cucumbers, peppers, and more",
+              "All seeds are certified organic, non-GMO, and open-pollinated",
+              "High germination rates (90%+)",
+              "Detailed growing instructions for each variety",
+              "Suitable for container gardening or traditional garden beds",
+              "Enough seeds to plant a 500 square foot garden",
+            ],
+            specifications: [
+              { name: "Varieties", value: "15 different vegetables" },
+              { name: "Seeds per Variety", value: "Varies by vegetable type" },
+              { name: "Germination Rate", value: "90%+" },
+              { name: "Growing Zone", value: "3-9" },
+              { name: "Garden Coverage", value: "Up to 500 square feet" },
+              {
+                name: "Organic Certification",
+                value: "USDA Certified Organic",
+              },
+            ],
+            images: [
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Veggie+Seeds+1",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Veggie+Seeds+2",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Veggie+Seeds+3",
+              "https://placehold.co/600x600/2c5530/FFFFFF?text=Veggie+Seeds+4",
+            ],
+            reviews: [
+              {
+                name: "Daniel Roberts",
+                date: "2023-03-25",
+                rating: 5,
+                text: "This seed pack is perfect for starting an organic garden. I've had great success with all the varieties I've planted so far. The germination rate is excellent!",
+              },
+              {
+                name: "Michelle Thompson",
+                date: "2023-04-15",
+                rating: 4,
+                text: "Good variety of vegetables that grow well together. The instructions are clear and helpful. I wish it included a few more herb varieties.",
+              },
+              {
+                name: "Brian Jackson",
+                date: "2023-05-28",
+                rating: 5,
+                text: "As a first-time gardener, this pack gave me everything I needed to get started. I'm amazed at how well everything is growing!",
+              },
+            ],
+            relatedProducts: [2, 5, 3],
+          },
+        ];
+
+        // Get product ID from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get("id"));
+
+        // Find the product in the database
+        const product = productsDB.find((p) => p.id === productId);
+
+        // If product not found, redirect to store page
+        if (!product) {
+          window.location.href = "store.html";
+          return;
+        }
+
+        // Update page title
+        document.title = `${product.name} - Organic Store`;
+
+        // Update breadcrumb
+        document.getElementById("product-category").textContent =
+          product.category.charAt(0).toUpperCase() + product.category.slice(1);
+        document.getElementById("product-name-breadcrumb").textContent =
+          product.name;
+
+        // Update product details
+        document.getElementById("product-name").textContent = product.name;
+        document.getElementById("product-price").textContent =
+          `$${product.price.toFixed(2)}`;
+        document.getElementById("product-description").textContent =
+          product.description;
+        document.getElementById("product-main-image").src = product.images[0];
+        document.getElementById("product-main-image").alt = product.name;
+        document.getElementById("product-sku").textContent = product.sku;
+        document.getElementById("product-category-meta").textContent =
+          product.category.charAt(0).toUpperCase() + product.category.slice(1);
+        document.getElementById("product-tags").textContent =
+          product.tags.join(", ");
+
+        // Load product thumbnails
+        const thumbnailsContainer =
+          document.getElementById("product-thumbnails");
+        product.images.forEach((image, index) => {
+          const thumbnail = document.createElement("div");
+          thumbnail.className = "product-thumbnail";
+          if (index === 0) thumbnail.classList.add("active");
+
+          const img = document.createElement("img");
+          img.src = image;
+          img.alt = `${product.name} - Image ${index + 1}`;
+
+          thumbnail.appendChild(img);
+          thumbnailsContainer.appendChild(thumbnail);
+
+          // Add click event to switch main image
+          thumbnail.addEventListener("click", function () {
+            document.getElementById("product-main-image").src = image;
+            document.querySelectorAll(".product-thumbnail").forEach((thumb) => {
+              thumb.classList.remove("active");
+            });
+            this.classList.add("active");
+          });
+        });
+
+        // Load long description
+        document.getElementById("product-long-description").innerHTML =
+          `<p>${product.longDescription}</p>`;
+
+        // Load features
+        const featuresList = document.getElementById("product-features");
+        product.features.forEach((feature) => {
+          const li = document.createElement("li");
+          li.textContent = feature;
+          featuresList.appendChild(li);
+        });
+
+        // Load specifications
+        const specificationsTable = document.getElementById(
+          "product-specifications",
+        );
+        product.specifications.forEach((spec) => {
+          const row = document.createElement("tr");
+
+          const nameCell = document.createElement("td");
+          nameCell.className = "spec-name";
+          nameCell.textContent = spec.name;
+
+          const valueCell = document.createElement("td");
+          valueCell.className = "spec-value";
+          valueCell.textContent = spec.value;
+
+          row.appendChild(nameCell);
+          row.appendChild(valueCell);
+          specificationsTable.appendChild(row);
+        });
+
+        // Load reviews
+        const reviewsList = document.getElementById("reviews-list");
+        product.reviews.forEach((review) => {
+          const reviewElement = document.createElement("div");
+          reviewElement.className = "review-item";
+
+          // Create stars based on rating
+          let starsHtml = "";
+          for (let i = 1; i <= 5; i++) {
+            if (i <= review.rating) {
+              starsHtml += '<i class="fas fa-star"></i>';
+            } else {
+              starsHtml += '<i class="far fa-star"></i>';
+            }
+          }
+
+          reviewElement.innerHTML = `
+          <div class="review-header">
+            <div class="review-author">${review.name}</div>
+            <div class="review-date">${new Date(review.date).toLocaleDateString()}</div>
+          </div>
+          <div class="review-rating">
+            ${starsHtml}
+          </div>
+          <div class="review-text">${review.text}</div>
+        `;
+
+          reviewsList.appendChild(reviewElement);
+        });
+
+        // Load related products
+        const relatedProductsContainer =
+          document.getElementById("related-products");
+        product.relatedProducts.forEach((relatedId) => {
+          const relatedProduct = productsDB.find((p) => p.id === relatedId);
+          if (relatedProduct) {
+            const productCard = document.createElement("article");
+            productCard.className = "product-card";
+
+            productCard.innerHTML = `
+            <img class="product-image" src="${relatedProduct.image}" alt="${relatedProduct.name}">
+            <h3 class="product-title">${relatedProduct.name}</h3>
+            <p class="product-description">${relatedProduct.description}</p>
+            <p class="product-price">$${relatedProduct.price.toFixed(2)}</p>
+            <a href="product.html?id=${relatedProduct.id}" class="view-product-button">View Product</a>
+          `;
+
+            relatedProductsContainer.appendChild(productCard);
+          }
+        });
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from all buttons and contents
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            tabContents.forEach((content) =>
+              content.classList.remove("active"),
+            );
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            // Show corresponding content
+            const tabId = this.getAttribute("data-tab");
+            document.getElementById(`${tabId}-tab`).classList.add("active");
+          });
+        });
+
+        // Quantity controls
+        const quantityInput = document.getElementById("quantity");
+        document
+          .getElementById("decrease-quantity")
+          .addEventListener("click", function () {
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+              quantityInput.value = currentValue - 1;
+            }
+          });
+
+        document
+          .getElementById("increase-quantity")
+          .addEventListener("click", function () {
+            const currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+          });
+
+        // Add to cart functionality
+        document
+          .getElementById("add-to-cart")
+          .addEventListener("click", function () {
+            const quantity = parseInt(
+              document.getElementById("quantity").value,
+            );
+            addToCart(product.id, quantity);
+          });
+
+        // Review form star rating
+        const ratingStars = document.querySelectorAll(".rating-select i");
+        let selectedRating = 0;
+
+        ratingStars.forEach((star) => {
+          star.addEventListener("mouseover", function () {
+            const rating = parseInt(this.getAttribute("data-rating"));
+            highlightStars(rating);
+          });
+
+          star.addEventListener("mouseout", function () {
+            highlightStars(selectedRating);
+          });
+
+          star.addEventListener("click", function () {
+            selectedRating = parseInt(this.getAttribute("data-rating"));
+            highlightStars(selectedRating);
+          });
+        });
+
+        function highlightStars(rating) {
+          ratingStars.forEach((star) => {
+            const starRating = parseInt(star.getAttribute("data-rating"));
+            if (starRating <= rating) {
+              star.className = "fas fa-star";
+            } else {
+              star.className = "far fa-star";
+            }
+          });
+        }
+
+        // Review form submission
+        document
+          .getElementById("review-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            if (selectedRating === 0) {
+              alert("Please select a rating");
+              return;
+            }
+
+            const name = document.getElementById("review-name").value;
+            const email = document.getElementById("review-email").value;
+            const text = document.getElementById("review-text").value;
+
+            // In a real application, this would send the review to a server
+            // For this demo, we'll just add it to the reviews list
+            const reviewElement = document.createElement("div");
+            reviewElement.className = "review-item";
+
+            // Create stars based on rating
+            let starsHtml = "";
+            for (let i = 1; i <= 5; i++) {
+              if (i <= selectedRating) {
+                starsHtml += '<i class="fas fa-star"></i>';
+              } else {
+                starsHtml += '<i class="far fa-star"></i>';
+              }
+            }
+
+            reviewElement.innerHTML = `
+          <div class="review-header">
+            <div class="review-author">${name}</div>
+            <div class="review-date">${new Date().toLocaleDateString()}</div>
+          </div>
+          <div class="review-rating">
+            ${starsHtml}
+          </div>
+          <div class="review-text">${text}</div>
+        `;
+
+            document.getElementById("reviews-list").prepend(reviewElement);
+
+            // Reset form
+            this.reset();
+            selectedRating = 0;
+            highlightStars(0);
+
+            // Show confirmation
+            alert("Thank you for your review!");
+          });
+
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem("organicStoreCart")) || [];
+
+        // Update cart count
+        function updateCartCount() {
+          const cartCount = document.getElementById("cart-count");
+          cartCount.textContent = cart.reduce(
+            (total, item) => total + item.quantity,
+            0,
+          );
+        }
+
+        // Add to cart function
+        function addToCart(productId, quantity = 1) {
+          const product = productsDB.find((p) => p.id === productId);
+          if (!product) return;
+
+          const existingItem = cart.find((item) => item.id === productId);
+          if (existingItem) {
+            existingItem.quantity += quantity;
+          } else {
+            cart.push({
+              ...product,
+              quantity: quantity,
+            });
+          }
+
+          // Save to localStorage
+          localStorage.setItem("organicStoreCart", JSON.stringify(cart));
+          updateCartCount();
+
+          // Show confirmation message
+          const message = document.createElement("div");
+          message.className = "add-to-cart-message";
+          message.textContent = `${quantity} ${quantity > 1 ? "items" : "item"} added to cart!`;
+          document.body.appendChild(message);
+
+          setTimeout(() => {
+            message.classList.add("show");
+          }, 10);
+
+          setTimeout(() => {
+            message.classList.remove("show");
+            setTimeout(() => {
+              message.remove();
+            }, 300);
+          }, 2000);
+        }
+
+        // Mobile menu toggle
+        document
+          .getElementById("mobile-menu-toggle")
+          .addEventListener("click", function () {
+            const mobileMenu = document.getElementById("mobile-menu");
+            mobileMenu.classList.toggle("active");
+          });
+
+        // Initialize
+        updateCartCount();
+      });
+    </script>
+  </body>
+</html>

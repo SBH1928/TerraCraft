@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personalized Growing Tips</title>
+    <link rel="stylesheet" href="tips.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .tips-container {
+        background-color: #ffffff;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(244, 243, 243, 0.1);
+        margin: 20px 0;
+        animation: fadeIn 0.5s ease-in-out;
+        position: relative;
+      }
+
+      .tips-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.92);
+        border-radius: 8px;
+        z-index: -1;
+      }
+
+      .tips-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .tips-title {
+        color: #2e5a1c;
+        font-size: 28px;
+        margin: 0;
+      }
+
+      .tips-summary {
+        background-color: #f5f9f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+      }
+
+      .tips-summary p {
+        background-color: #f5f9f5;
+        margin: 5px 0;
+      }
+
+      .tips-summary strong {
+        color: #2e5a1c;
+      }
+
+      .tips-section {
+        margin-bottom: 30px;
+      }
+
+      .tips-section-title {
+        color: #2e5a1c;
+        font-size: 22px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #2e5a1c;
+        display: flex;
+        align-items: center;
+      }
+
+      .tips-list {
+        list-style-type: none;
+        color: #303e30;
+        padding: 0;
+      }
+
+      .tips-list li {
+        padding: 10px 0;
+        display: flex;
+        align-items: flex-start;
+        
+      }
+
+      .tips-list li:before {
+        content: "•";
+        color: #2e5a1c;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-right: 10px;
+      }
+
+      .back-to-form {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #2e5a1c;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+      }
+
+      .back-to-form:hover {
+        background-color: #234615;
+      }
+
+      .print-tips {
+        padding: 10px 20px;
+        background-color: #f5f5f5;
+        color: #333;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .print-tips:hover {
+        background-color: #e0e0e0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="site-header">
+        <nav class="main-nav">
+          <div class="logo-container">
+            <img
+              src="https://placehold.co/60x60/2e5a1c/ffffff?text=TC"
+              alt="Organic Growing Tips Logo"
+              class="logo-image"
+            />
+            <h1 class="site-title">Terra Tips</h1>
+          </div>
+          <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="store.html" class="nav-link">Store</a>
+            <a href="forum.html" class="nav-link">Community Forum</a>
+          </div>
+        </nav>
+      </header>
+      <main class="main-content">
+        <div class="tips-container">
+          <div class="tips-header">
+            <h2 class="tips-title">Your Personalized Growing Tips</h2>
+            <button class="print-tips" onclick="window.print()">
+              Print Tips
+            </button>
+          </div>
+
+          <div class="tips-summary" id="tips-summary">
+            <!-- Will be populated by JavaScript -->
+          </div>
+
+          <div class="tips-section">
+            <h3 class="tips-section-title">
+              <img
+                src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhbnRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=100&q=60"
+                alt="Planting"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin-right: 10px;
+                "
+              />
+              Planting Recommendations
+            </h3>
+            <ul class="tips-list" id="planting-tips">
+              <!-- Will be populated by JavaScript -->
+            </ul>
+          </div>
+
+          <div class="tips-section">
+            <h3 class="tips-section-title">
+              <img
+                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNvaWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=100&q=60"
+                alt="Soil"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin-right: 10px;
+                "
+              />
+              Soil Management
+            </h3>
+            <ul class="tips-list" id="soil-tips">
+              <!-- Will be populated by JavaScript -->
+            </ul>
+          </div>
+
+          <div class="tips-section">
+            <h3 class="tips-section-title">
+              <img
+                src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxhZHlidWd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=100&q=60"
+                alt="Pest Control"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin-right: 10px;
+                "
+              />
+              Pest & Disease Management
+            </h3>
+            <ul class="tips-list" id="pest-tips">
+              <!-- Will be populated by JavaScript -->
+            </ul>
+          </div>
+
+          <div class="tips-section">
+            <h3 class="tips-section-title">
+              <img
+                src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXJyaWdhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=100&q=60"
+                alt="Water"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin-right: 10px;
+                "
+              />
+              Water Management
+            </h3>
+            <ul class="tips-list" id="water-tips">
+              <!-- Will be populated by JavaScript -->
+            </ul>
+          </div>
+
+          <div class="tips-section">
+            <h3 class="tips-section-title">
+              <img
+                src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aGFydmVzdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=100&q=60"
+                alt="Harvest"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin-right: 10px;
+                "
+              />
+              Harvesting Tips
+            </h3>
+            <ul class="tips-list" id="harvest-tips">
+              <!-- Will be populated by JavaScript -->
+            </ul>
+          </div>
+
+          <a href="tips.html" class="back-to-form">Back to Form</a>
+        </div>
+      </main>
+      <footer class="site-footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title">
+              <i class="fas fa-link"></i> Quick Links
+            </h3>
+            <ul class="footer-links">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3 class="footer-title"><i class="fas fa-book"></i> Resources</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="guides.html" class="footer-link">Farming Guides</a>
+              </li>
+              <li>
+                <a href="forum.html" class="footer-link">Community Forum</a>
+              </li>
+              <li><a href="store.html" class="footer-link">Store</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="personalized-tips.js"></script>
+  </body>
+</html>

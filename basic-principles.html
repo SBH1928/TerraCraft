@@ -1,0 +1,1805 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organic Farming Principles - Organic Store</title>
+    <link rel="stylesheet" href="store.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Farming principles specific styles */
+      .principles-hero {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("https://placehold.co/1200x400/2c5530/FFFFFF?text=Organic+Farming");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 80px 20px;
+        margin-bottom: 40px;
+      }
+
+      .principles-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 60px;
+      }
+
+      .principles-intro {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .principles-intro h2 {
+        color: #2c5530;
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .principles-intro p {
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #444;
+      }
+
+      .principles-nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+      }
+
+      .principles-nav-item {
+        background-color: #f0f7f0;
+        color: #2c5530;
+        padding: 15px 25px;
+        border-radius: 30px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .principles-nav-item:hover {
+        background-color: #e0ede0;
+      }
+
+      .principles-nav-item.active {
+        background-color: #2c5530;
+        color: white;
+      }
+
+      .principle-section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-bottom: 40px;
+        display: none;
+      }
+
+      .principle-section.active {
+        display: block;
+      }
+
+      .principle-section h2 {
+        color: #2c5530;
+        font-size: 28px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #e0ede0;
+      }
+
+      .principle-section p {
+        line-height: 1.7;
+        margin-bottom: 20px;
+        color: #444;
+      }
+
+      .principle-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 30px 0;
+      }
+
+      .principle-card {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .principle-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .principle-card h3 {
+        color: #2c5530;
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      .principle-card-icon {
+        font-size: 40px;
+        color: #2c5530;
+        margin-bottom: 20px;
+      }
+
+      .principle-card p {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .accordion {
+        margin: 30px 0;
+      }
+
+      .accordion-item {
+        border: 1px solid #e0ede0;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        overflow: hidden;
+      }
+
+      .accordion-header {
+        background-color: #f0f7f0;
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+        color: #2c5530;
+      }
+
+      .accordion-header:hover {
+        background-color: #e0ede0;
+      }
+
+      .accordion-content {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .accordion-content.active {
+        padding: 20px;
+        max-height: 500px;
+      }
+
+      .calculator {
+        background-color: #f0f7f0;
+        padding: 30px;
+        border-radius: 8px;
+        margin: 30px 0;
+      }
+
+      .calculator h3 {
+        color: #2c5530;
+        margin-bottom: 20px;
+        font-size: 22px;
+      }
+
+      .calculator-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .calculator-form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .calculator-form-group label {
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .calculator-form-group input,
+      .calculator-form-group select {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .calculator-button {
+        background-color: #2c5530;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        grid-column: span 2;
+        margin-top: 10px;
+      }
+
+      .calculator-button:hover {
+        background-color: #1e3c21;
+      }
+
+      .calculator-result {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 4px;
+        display: none;
+      }
+
+      .calculator-result.active {
+        display: block;
+      }
+
+      .quiz-container {
+        background-color: #f0f7f0;
+        padding: 30px;
+        border-radius: 8px;
+        margin: 30px 0;
+      }
+
+      .quiz-container h3 {
+        color: #2c5530;
+        margin-bottom: 20px;
+        font-size: 22px;
+        text-align: center;
+      }
+
+      .quiz-question {
+        margin-bottom: 30px;
+      }
+
+      .quiz-question p {
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .quiz-options {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .quiz-option {
+        background-color: white;
+        padding: 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .quiz-option:hover {
+        background-color: #e0ede0;
+      }
+
+      .quiz-option.selected {
+        background-color: #2c5530;
+        color: white;
+      }
+
+      .quiz-option.correct {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .quiz-option.incorrect {
+        background-color: #f44336;
+        color: white;
+      }
+
+      .quiz-submit {
+        background-color: #2c5530;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .quiz-submit:hover {
+        background-color: #1e3c21;
+      }
+
+      .quiz-result {
+        text-align: center;
+        margin-top: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 4px;
+        display: none;
+      }
+
+      .quiz-result.active {
+        display: block;
+      }
+
+      .resource-list {
+        margin: 30px 0;
+      }
+
+      .resource-list h3 {
+        color: #2c5530;
+        margin-bottom: 15px;
+      }
+
+      .resource-list ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .resource-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid #e0ede0;
+      }
+
+      .resource-list a {
+        color: #2c5530;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .resource-list a:hover {
+        text-decoration: underline;
+      }
+
+      .resource-list i {
+        margin-right: 10px;
+      }
+
+      .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .gallery-image {
+        border-radius: 8px;
+        overflow: hidden;
+        height: 200px;
+      }
+
+      .gallery-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-image:hover img {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .principle-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .calculator-form {
+          grid-template-columns: 1fr;
+        }
+
+        .calculator-button {
+          grid-column: 1;
+        }
+
+        .principles-hero {
+          padding: 60px 20px;
+        }
+
+        .principle-section {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="site-header">
+        <nav class="main-nav">
+          <h1 class="site-title">Organic Store</h1>
+          <div class="nav-links">
+            <a class="nav-link" href="store.html">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+            <a href="#" class="nav-link">Forum</a>
+          </div>
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a href="cart.html" class="cart-button">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart (</span>
+            <span id="cart-count">0</span>
+            <span>)</span>
+          </a>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu">
+          <a href="store.html" class="mobile-nav-link">Home</a>
+          <a href="about.html" class="mobile-nav-link">About</a>
+          <a href="contact.hml" class="mobile-nav-link">Contact</a>
+          <a href="forum.html" class="mobile-nav-link">Forum</a>
+        </div>
+      </header>
+
+      <section class="principles-hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Principles of Organic Farming</h1>
+          <p class="hero-text">
+            Learn about sustainable practices for soil, water, and pest
+            management
+          </p>
+        </div>
+      </section>
+
+      <div class="principles-container">
+        <div class="principles-intro">
+          <h2>Sustainable Farming for a Healthier Planet</h2>
+          <p>
+            Organic farming is a holistic approach to agriculture that focuses
+            on building healthy soils, promoting biodiversity, and avoiding
+            synthetic chemicals. By working with nature rather than against it,
+            organic farmers create sustainable systems that produce nutritious
+            food while protecting the environment for future generations.
+          </p>
+        </div>
+
+        <div class="principles-nav">
+          <div class="principles-nav-item active" data-target="intro">
+            Introduction
+          </div>
+          <div class="principles-nav-item" data-target="soil">
+            Soil Management
+          </div>
+          <div class="principles-nav-item" data-target="water">
+            Water Management
+          </div>
+          <div class="principles-nav-item" data-target="pest">
+            Pest Management
+          </div>
+          <div class="principles-nav-item" data-target="resources">
+            Resources
+          </div>
+        </div>
+
+        <div id="intro" class="principle-section active">
+          <h2>Introduction to Organic Farming</h2>
+          <p>
+            Organic farming is an agricultural system that uses environmentally
+            and animal-friendly farming methods on organic farms. These methods
+            integrate cultural, biological, and mechanical practices that foster
+            cycling of resources, promote ecological balance, and conserve
+            biodiversity.
+          </p>
+
+          <p>The core principles of organic farming include:</p>
+
+          <div class="principle-cards">
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-seedling"></i>
+              </div>
+              <h3>Health</h3>
+              <p>
+                Organic agriculture should sustain and enhance the health of
+                soil, plants, animals, humans, and the planet as one and
+                indivisible.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h3>Ecology</h3>
+              <p>
+                Organic agriculture should be based on living ecological systems
+                and cycles, work with them, emulate them, and help sustain them.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-balance-scale"></i>
+              </div>
+              <h3>Fairness</h3>
+              <p>
+                Organic agriculture should build on relationships that ensure
+                fairness with regard to the common environment and life
+                opportunities.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+              <h3>Care</h3>
+              <p>
+                Organic agriculture should be managed in a precautionary and
+                responsible manner to protect the health and well-being of
+                current and future generations and the environment.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            By following these principles, organic farmers create sustainable
+            agricultural systems that produce high-quality food while preserving
+            the environment and rural communities.
+          </p>
+
+          <div class="quiz-container">
+            <h3>Test Your Knowledge</h3>
+            <div class="quiz-question">
+              <p>1. What is the primary focus of organic farming?</p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="true">
+                  Building healthy soils and promoting biodiversity
+                </div>
+                <div class="quiz-option">
+                  Maximizing crop yields at any cost
+                </div>
+                <div class="quiz-option">
+                  Using the latest synthetic chemicals
+                </div>
+                <div class="quiz-option">
+                  Focusing solely on short-term profits
+                </div>
+              </div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                2. Which of the following is NOT one of the core principles of
+                organic farming?
+              </p>
+              <div class="quiz-options">
+                <div class="quiz-option">Health</div>
+                <div class="quiz-option">Ecology</div>
+                <div class="quiz-option">Fairness</div>
+                <div class="quiz-option" data-correct="true">
+                  Efficiency at all costs
+                </div>
+              </div>
+            </div>
+
+            <button class="quiz-submit">Submit Answers</button>
+
+            <div class="quiz-result">
+              <h4>Your Score: <span id="quiz-score">0/2</span></h4>
+              <p id="quiz-feedback">Try again to improve your score!</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="soil" class="principle-section">
+          <h2>Soil Management in Organic Farming</h2>
+          <p>
+            Healthy soil is the foundation of organic farming. Unlike
+            conventional agriculture that often treats soil merely as a medium
+            to hold plants and synthetic nutrients, organic farmers view soil as
+            a living ecosystem teeming with microorganisms, fungi, and other
+            beneficial life forms.
+          </p>
+
+          <div class="principle-cards">
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-recycle"></i>
+              </div>
+              <h3>Crop Rotation</h3>
+              <p>
+                Rotating crops helps prevent pest and disease buildup, improves
+                soil structure, and balances nutrient requirements across
+                growing seasons.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <h3>Composting</h3>
+              <p>
+                Compost adds organic matter to soil, improves soil structure,
+                provides slow-release nutrients, and enhances microbial
+                activity.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-tint"></i>
+              </div>
+              <h3>Cover Crops</h3>
+              <p>
+                Cover crops prevent soil erosion, suppress weeds, fix nitrogen,
+                and add organic matter when incorporated into the soil.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Organic soil management focuses on building soil organic matter,
+            which improves soil structure, water retention, and nutrient
+            cycling. This creates a resilient system that can better withstand
+            drought, flooding, and other environmental stresses.
+          </p>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Benefits of Organic Matter in Soil</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <ul>
+                  <li>Improves soil structure and tilth</li>
+                  <li>Increases water infiltration and retention</li>
+                  <li>Reduces soil erosion</li>
+                  <li>Provides habitat for beneficial soil organisms</li>
+                  <li>Supplies nutrients through decomposition</li>
+                  <li>Buffers soil pH</li>
+                  <li>Sequesters carbon, helping mitigate climate change</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Green Manures and Their Benefits</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Green manures are crops grown specifically to be incorporated
+                  into the soil while still green or shortly after flowering.
+                  They offer numerous benefits:
+                </p>
+                <ul>
+                  <li>Add organic matter to soil</li>
+                  <li>Improve soil structure</li>
+                  <li>Prevent soil erosion</li>
+                  <li>Suppress weeds</li>
+                  <li>Leguminous green manures fix atmospheric nitrogen</li>
+                  <li>Break pest and disease cycles</li>
+                </ul>
+                <p>
+                  Common green manure crops include clover, vetch, rye,
+                  buckwheat, and mustard.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Soil Testing and Amendments</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Regular soil testing helps organic farmers monitor soil health
+                  and nutrient levels. Based on test results, they can apply
+                  appropriate organic amendments:
+                </p>
+                <ul>
+                  <li>
+                    Compost: adds organic matter and a wide range of nutrients
+                  </li>
+                  <li>Rock phosphate: slow-release source of phosphorus</li>
+                  <li>
+                    Greensand: provides potassium, iron, magnesium, and other
+                    minerals
+                  </li>
+                  <li>Lime: raises soil pH in acidic soils</li>
+                  <li>Sulfur: lowers soil pH in alkaline soils</li>
+                  <li>Bone meal: provides phosphorus and calcium</li>
+                  <li>
+                    Kelp meal: supplies trace minerals and growth hormones
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="calculator">
+            <h3>Compost Calculator</h3>
+            <p>Determine how much compost you need for your garden area:</p>
+
+            <div class="calculator-form">
+              <div class="calculator-form-group">
+                <label for="garden-length">Garden Length (feet)</label>
+                <input type="number" id="garden-length" min="1" value="10" />
+              </div>
+
+              <div class="calculator-form-group">
+                <label for="garden-width">Garden Width (feet)</label>
+                <input type="number" id="garden-width" min="1" value="10" />
+              </div>
+
+              <div class="calculator-form-group">
+                <label for="compost-depth"
+                  >Desired Compost Depth (inches)</label
+                >
+                <input
+                  type="number"
+                  id="compost-depth"
+                  min="0.5"
+                  max="12"
+                  step="0.5"
+                  value="2"
+                />
+              </div>
+
+              <div class="calculator-form-group">
+                <label for="compost-unit">Unit</label>
+                <select id="compost-unit">
+                  <option value="cubic-feet">Cubic Feet</option>
+                  <option value="cubic-yards">Cubic Yards</option>
+                </select>
+              </div>
+
+              <button class="calculator-button" id="calculate-compost">
+                Calculate
+              </button>
+            </div>
+
+            <div class="calculator-result" id="compost-result">
+              <p>
+                You will need <span id="compost-amount">0</span> of compost for
+                your garden.
+              </p>
+            </div>
+          </div>
+
+          <div class="image-gallery">
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Healthy+Soil"
+                alt="Healthy soil with earthworms"
+              />
+            </div>
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Composting"
+                alt="Compost pile"
+              />
+            </div>
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Cover+Crops"
+                alt="Field with cover crops"
+              />
+            </div>
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Crop+Rotation"
+                alt="Crop rotation diagram"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="water" class="principle-section">
+          <h2>Water Management in Organic Farming</h2>
+          <p>
+            Effective water management is crucial for sustainable organic
+            farming. The goal is to maximize water use efficiency while
+            minimizing runoff, erosion, and water pollution. Organic farmers
+            implement various strategies to conserve water and protect water
+            quality.
+          </p>
+
+          <div class="principle-cards">
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-water"></i>
+              </div>
+              <h3>Water Conservation</h3>
+              <p>
+                Techniques like mulching, drip irrigation, and rainwater
+                harvesting help conserve water and reduce the need for
+                irrigation.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-filter"></i>
+              </div>
+              <h3>Water Quality Protection</h3>
+              <p>
+                Buffer zones, cover crops, and avoiding synthetic chemicals help
+                protect water sources from contamination and runoff.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-cloud-rain"></i>
+              </div>
+              <h3>Rainwater Management</h3>
+              <p>
+                Swales, terraces, and other landscape features help capture
+                rainwater and reduce erosion by slowing water movement across
+                the land.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Building soil organic matter is also a key water management
+            strategy, as each 1% increase in soil organic matter can help soil
+            hold approximately 20,000 gallons more water per acre.
+          </p>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Irrigation Methods for Organic Farms</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Organic farmers use various irrigation methods, choosing the
+                  most appropriate based on crop needs, soil type, climate, and
+                  water availability:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Drip Irrigation:</strong> Delivers water directly to
+                    plant roots, minimizing evaporation and runoff. Ideal for
+                    row crops, orchards, and vineyards.
+                  </li>
+                  <li>
+                    <strong>Micro-sprinklers:</strong> Provide gentle water
+                    application over a larger area than drip systems. Good for
+                    tree crops and some field crops.
+                  </li>
+                  <li>
+                    <strong>Flood Irrigation:</strong> Can be appropriate in
+                    certain situations with proper management to minimize runoff
+                    and erosion.
+                  </li>
+                  <li>
+                    <strong>Center Pivot:</strong> Can be efficient when
+                    properly managed and equipped with low-pressure nozzles.
+                  </li>
+                </ul>
+                <p>
+                  Regardless of the method, timing irrigation based on actual
+                  crop needs rather than fixed schedules helps conserve water.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Mulching for Water Conservation</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Mulching is a valuable practice for water conservation in
+                  organic farming:
+                </p>
+                <ul>
+                  <li>Reduces evaporation from soil surface</li>
+                  <li>Suppresses weeds that compete for water</li>
+                  <li>Moderates soil temperature</li>
+                  <li>Reduces water runoff and soil erosion</li>
+                  <li>
+                    Adds organic matter to soil as it decomposes (organic
+                    mulches)
+                  </li>
+                </ul>
+                <p>
+                  Common organic mulch materials include straw, leaves, grass
+                  clippings, wood chips, and compost. Living mulches (cover
+                  crops) can also be used between rows of main crops.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Rainwater Harvesting Systems</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Rainwater harvesting allows farmers to capture and store
+                  rainwater for later use:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Rain Barrels and Cisterns:</strong> Collect
+                    rainwater from roofs for small-scale use
+                  </li>
+                  <li>
+                    <strong>Farm Ponds:</strong> Store larger quantities of
+                    water for irrigation
+                  </li>
+                  <li>
+                    <strong>Swales and Berms:</strong> Landscape features that
+                    slow water flow and increase infiltration
+                  </li>
+                  <li>
+                    <strong>Keyline Design:</strong> A system for optimizing
+                    water use by directing water from wet areas to dry areas
+                  </li>
+                </ul>
+                <p>
+                  These systems help farmers reduce dependence on groundwater
+                  and municipal water sources while making the most of natural
+                  rainfall.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="calculator">
+            <h3>Irrigation Water Calculator</h3>
+            <p>Estimate how much water you need to irrigate your garden:</p>
+
+            <div class="calculator-form">
+              <div class="calculator-form-group">
+                <label for="irrigation-area">Garden Area (square feet)</label>
+                <input type="number" id="irrigation-area" min="1" value="100" />
+              </div>
+
+              <div class="calculator-form-group">
+                <label for="water-depth">Water Depth Needed (inches)</label>
+                <input
+                  type="number"
+                  id="water-depth"
+                  min="0.1"
+                  max="4"
+                  step="0.1"
+                  value="1"
+                />
+              </div>
+
+              <div class="calculator-form-group">
+                <label for="irrigation-efficiency"
+                  >Irrigation Efficiency (%)</label
+                >
+                <input
+                  type="number"
+                  id="irrigation-efficiency"
+                  min="50"
+                  max="95"
+                  value="80"
+                />
+              </div>
+
+              <div class="calculator-form-group">
+                <label for="water-unit">Unit</label>
+                <select id="water-unit">
+                  <option value="gallons">Gallons</option>
+                  <option value="liters">Liters</option>
+                </select>
+              </div>
+
+              <button class="calculator-button" id="calculate-water">
+                Calculate
+              </button>
+            </div>
+
+            <div class="calculator-result" id="water-result">
+              <p>
+                You will need <span id="water-amount">0</span> of water for
+                irrigation.
+              </p>
+            </div>
+          </div>
+
+          <div class="image-gallery">
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Drip+Irrigation"
+                alt="Drip irrigation system"
+              />
+            </div>
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Mulching"
+                alt="Garden with mulch"
+              />
+            </div>
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Rainwater+Harvesting"
+                alt="Rainwater collection system"
+              />
+            </div>
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Swales"
+                alt="Swale system for water management"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="pest" class="principle-section">
+          <h2>Pest Management in Organic Farming</h2>
+          <p>
+            Organic pest management focuses on prevention first, using a systems
+            approach to minimize pest problems. Rather than relying on synthetic
+            pesticides, organic farmers create balanced ecosystems that
+            naturally limit pest populations while promoting beneficial
+            organisms.
+          </p>
+
+          <div class="principle-cards">
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-bug"></i>
+              </div>
+              <h3>Biological Control</h3>
+              <p>
+                Encouraging beneficial insects, birds, and other organisms that
+                naturally control pest populations.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-random"></i>
+              </div>
+              <h3>Cultural Practices</h3>
+              <p>
+                Crop rotation, timing of planting, trap crops, and other
+                techniques that disrupt pest life cycles.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Physical Barriers</h3>
+              <p>
+                Row covers, netting, sticky traps, and other physical methods to
+                exclude or trap pests.
+              </p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-icon">
+                <i class="fas fa-spray-can"></i>
+              </div>
+              <h3>Organic Inputs</h3>
+              <p>
+                When necessary, using approved organic substances derived from
+                natural sources to manage pests.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            This integrated approach creates resilient farming systems that can
+            withstand pest pressure without relying on synthetic chemicals that
+            may harm beneficial organisms, pollinators, and the environment.
+          </p>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Beneficial Insects and How to Attract Them</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Beneficial insects are a farmer's allies in pest management.
+                  Here are some important beneficial insects and how to attract
+                  them:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Ladybugs:</strong> Consume aphids, mites, and small
+                    insects. Attract with dill, fennel, and yarrow.
+                  </li>
+                  <li>
+                    <strong>Lacewings:</strong> Larvae feed on aphids,
+                    mealybugs, and small caterpillars. Attract with daisies,
+                    sunflowers, and cosmos.
+                  </li>
+                  <li>
+                    <strong>Parasitic Wasps:</strong> Lay eggs in or on pest
+                    insects. Attract with small-flowered plants like sweet
+                    alyssum and herbs.
+                  </li>
+                  <li>
+                    <strong>Ground Beetles:</strong> Feed on slugs, snails, and
+                    soil-dwelling pests. Provide ground cover and avoid tilling.
+                  </li>
+                  <li>
+                    <strong>Hoverflies:</strong> Larvae feed on aphids. Adults
+                    are pollinators. Attract with phacelia, alyssum, and
+                    buckwheat.
+                  </li>
+                </ul>
+                <p>
+                  Creating insectary strips or borders with diverse flowering
+                  plants provides habitat and food for beneficial insects
+                  throughout the growing season.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Crop Rotation for Pest Management</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  Crop rotation is a fundamental practice for breaking pest
+                  cycles:
+                </p>
+                <ul>
+                  <li>
+                    Prevents buildup of crop-specific pests and diseases in soil
+                  </li>
+                  <li>Disrupts pest life cycles by removing host plants</li>
+                  <li>
+                    Reduces weed pressure through varying cultural practices
+                  </li>
+                  <li>Improves soil health, creating more resilient plants</li>
+                </ul>
+                <p>
+                  Effective crop rotation plans group crops by family and rotate
+                  between families. For example, following a heavy feeding crop
+                  like tomatoes (Solanaceae) with nitrogen-fixing beans
+                  (Fabaceae), then leafy greens (Amaranthaceae), and finally
+                  root crops (Apiaceae).
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Approved Organic Pest Control Substances</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-content">
+                <p>
+                  When preventive measures aren't enough, organic farmers can
+                  use approved substances, including:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Botanical Insecticides:</strong> Pyrethrum, neem
+                    oil, and rotenone (with restrictions)
+                  </li>
+                  <li>
+                    <strong>Microbial Products:</strong> Bacillus thuringiensis
+                    (Bt), Beauveria bassiana, and other beneficial
+                    microorganisms
+                  </li>
+                  <li>
+                    <strong>Mineral-Based Products:</strong> Diatomaceous earth,
+                    kaolin clay, and sulfur
+                  </li>
+                  <li>
+                    <strong>Soaps and Oils:</strong> Insecticidal soaps and
+                    horticultural oils that smother soft-bodied insects
+                  </li>
+                </ul>
+                <p>
+                  These substances must be used according to organic standards,
+                  with attention to timing, application methods, and potential
+                  impacts on non-target organisms.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-container">
+            <h3>Pest Management Quiz</h3>
+            <div class="quiz-question">
+              <p>
+                1. Which of the following is NOT a principle of organic pest
+                management?
+              </p>
+              <div class="quiz-options">
+                <div class="quiz-option">
+                  Prevention through cultural practices
+                </div>
+                <div class="quiz-option">Encouraging beneficial organisms</div>
+                <div class="quiz-option" data-correct="true">
+                  Regular application of synthetic pesticides
+                </div>
+                <div class="quiz-option">
+                  Using physical barriers to exclude pests
+                </div>
+              </div>
+            </div>
+
+            <div class="quiz-question">
+              <p>2. Ladybugs are beneficial in organic farming because they:</p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="true">
+                  Feed on aphids and other small pests
+                </div>
+                <div class="quiz-option">Improve soil fertility</div>
+                <div class="quiz-option">Repel larger insect pests</div>
+                <div class="quiz-option">Pollinate crops</div>
+              </div>
+            </div>
+
+            <div class="quiz-question">
+              <p>
+                3. Which practice helps break pest cycles by removing host
+                plants?
+              </p>
+              <div class="quiz-options">
+                <div class="quiz-option">Companion planting</div>
+                <div class="quiz-option" data-correct="true">Crop rotation</div>
+                <div class="quiz-option">Mulching</div>
+                <div class="quiz-option">Drip irrigation</div>
+              </div>
+            </div>
+
+            <button class="quiz-submit" id="pest-quiz-submit">
+              Submit Answers
+            </button>
+
+            <div class="quiz-result" id="pest-quiz-result">
+              <h4>Your Score: <span id="pest-quiz-score">0/3</span></h4>
+              <p id="pest-quiz-feedback">Try again to improve your score!</p>
+            </div>
+          </div>
+
+          <div class="image-gallery">
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Beneficial+Insects"
+                alt="Ladybug eating aphids"
+              />
+            </div>
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Companion+Planting"
+                alt="Companion planting arrangement"
+              />
+            </div>
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Row+Covers"
+                alt="Row covers protecting crops"
+              />
+            </div>
+            <div class="gallery-image">
+              <img
+                src="https://placehold.co/400x300/2c5530/FFFFFF?text=Trap+Crops"
+                alt="Trap crops in a garden"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="resources" class="principle-section">
+          <h2>Resources for Organic Farming</h2>
+          <p>
+            Continuous learning is essential for successful organic farming.
+            Here are resources to help you deepen your knowledge and connect
+            with the organic farming community.
+          </p>
+
+          <div class="resource-list">
+            <h3>Organizations and Certification Bodies</h3>
+            <ul>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-external-link-alt"></i> USDA National
+                  Organic Program</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-external-link-alt"></i> Organic Materials
+                  Review Institute (OMRI)</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-external-link-alt"></i> International
+                  Federation of Organic Agriculture Movements (IFOAM)</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-external-link-alt"></i> Organic Farmers
+                  Association</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-external-link-alt"></i> Rodale Institute</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="resource-list">
+            <h3>Educational Resources</h3>
+            <ul>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> ATTRA - National Sustainable
+                  Agriculture Information Service</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> eOrganic - Organic Agriculture
+                  Community of Practice</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> Organic Farming Research
+                  Foundation</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> Sustainable Agriculture Research
+                  and Education (SARE)</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> The Organic Farmer's Business
+                  Handbook</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="resource-list">
+            <h3>Recommended Books</h3>
+            <ul>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> "The New Organic Grower" by Eliot
+                  Coleman</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> "Teaming with Microbes" by Jeff
+                  Lowenfels and Wayne Lewis</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> "The Market Gardener" by
+                  Jean-Martin Fortier</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> "Organic Farming: An
+                  International History" by William Lockeretz</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-book"></i> "The Soil and Health" by Sir
+                  Albert Howard</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="resource-list">
+            <h3>Online Courses and Webinars</h3>
+            <ul>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-laptop"></i> Organic Farming Certificate
+                  Program - Various Universities</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-laptop"></i> MOSES Organic Farming
+                  Conference Recordings</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-laptop"></i> Rodale Institute Online
+                  Courses</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-laptop"></i> Cornell Small Farms Program</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-laptop"></i> Permaculture Design Certificate
+                  Courses</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="resource-list">
+            <h3>Tools and Calculators</h3>
+            <ul>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-calculator"></i> Organic Fertilizer
+                  Calculator</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-calculator"></i> Cover Crop Decision Tool</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-calculator"></i> Crop Rotation Planning
+                  Tool</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-calculator"></i> Soil Carbon Calculator</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-calculator"></i> Water Budget Calculator</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <div class="footer-content">
+          <section class="footer-section">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="store.html" class="footer-link">Home</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">About Us</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Products</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Contact</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Categories</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="#" class="footer-link">Tools</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Seeds</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Fertilizers</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Community</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="#" class="footer-link">Forum</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Blog</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Events</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p class="footer-text">Email: info@terracraft.com</p>
+            <p class="footer-text">Phone: (555) 123-4567</p>
+            <p class="footer-text">Address: 123 Green Street, Earth City</p>
+          </section>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy;  2025 TerraCraft. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Update cart count
+        const cartItems =
+          JSON.parse(localStorage.getItem("organicStoreCart")) || [];
+        document.getElementById("cart-count").textContent = cartItems.reduce(
+          (total, item) => total + item.quantity,
+          0,
+        );
+
+        // Mobile menu toggle
+        document
+          .getElementById("mobile-menu-toggle")
+          .addEventListener("click", function () {
+            document.getElementById("mobile-menu").classList.toggle("active");
+          });
+
+        // Principles navigation
+        const navItems = document.querySelectorAll(".principles-nav-item");
+        const sections = document.querySelectorAll(".principle-section");
+
+        navItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const target = this.getAttribute("data-target");
+
+            // Update active nav item
+            navItems.forEach((navItem) => navItem.classList.remove("active"));
+            this.classList.add("active");
+
+            // Show target section, hide others
+            sections.forEach((section) => {
+              if (section.id === target) {
+                section.classList.add("active");
+              } else {
+                section.classList.remove("active");
+              }
+            });
+          });
+        });
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+        accordionHeaders.forEach((header) => {
+          header.addEventListener("click", function () {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector("i");
+
+            // Toggle active class
+            content.classList.toggle("active");
+
+            // Toggle icon
+            if (content.classList.contains("active")) {
+              icon.classList.remove("fa-chevron-down");
+              icon.classList.add("fa-chevron-up");
+            } else {
+              icon.classList.remove("fa-chevron-up");
+              icon.classList.add("fa-chevron-down");
+            }
+          });
+        });
+
+        // Compost calculator
+        document
+          .getElementById("calculate-compost")
+          .addEventListener("click", function () {
+            const length = parseFloat(
+              document.getElementById("garden-length").value,
+            );
+            const width = parseFloat(
+              document.getElementById("garden-width").value,
+            );
+            const depth = parseFloat(
+              document.getElementById("compost-depth").value,
+            );
+            const unit = document.getElementById("compost-unit").value;
+
+            // Calculate cubic feet
+            let cubicFeet = (length * width * depth) / 12;
+
+            // Convert to cubic yards if needed
+            let result;
+            let unitLabel;
+
+            if (unit === "cubic-yards") {
+              result = (cubicFeet / 27).toFixed(2);
+              unitLabel = "cubic yards";
+            } else {
+              result = cubicFeet.toFixed(2);
+              unitLabel = "cubic feet";
+            }
+
+            // Display result
+            document.getElementById("compost-amount").textContent =
+              `${result} ${unitLabel}`;
+            document.getElementById("compost-result").classList.add("active");
+          });
+
+        // Water calculator
+        document
+          .getElementById("calculate-water")
+          .addEventListener("click", function () {
+            const area = parseFloat(
+              document.getElementById("irrigation-area").value,
+            );
+            const depth = parseFloat(
+              document.getElementById("water-depth").value,
+            );
+            const efficiency =
+              parseFloat(
+                document.getElementById("irrigation-efficiency").value,
+              ) / 100;
+            const unit = document.getElementById("water-unit").value;
+
+            // Calculate gallons (0.623 gallons per square foot per inch of water)
+            let gallons = (area * depth * 0.623) / efficiency;
+
+            // Convert to liters if needed
+            let result;
+            let unitLabel;
+
+            if (unit === "liters") {
+              result = (gallons * 3.78541).toFixed(0);
+              unitLabel = "liters";
+            } else {
+              result = gallons.toFixed(0);
+              unitLabel = "gallons";
+            }
+
+            // Display result
+            document.getElementById("water-amount").textContent =
+              `${result} ${unitLabel}`;
+            document.getElementById("water-result").classList.add("active");
+          });
+
+        // Quiz functionality
+        document
+          .querySelector(".quiz-submit")
+          .addEventListener("click", function () {
+            const questions = document.querySelectorAll(
+              "#intro .quiz-question",
+            );
+            let score = 0;
+
+            questions.forEach((question) => {
+              const options = question.querySelectorAll(".quiz-option");
+              let answered = false;
+
+              options.forEach((option) => {
+                if (option.classList.contains("selected")) {
+                  answered = true;
+
+                  if (option.hasAttribute("data-correct")) {
+                    score++;
+                    option.classList.add("correct");
+                  } else {
+                    option.classList.add("incorrect");
+                  }
+                } else if (option.hasAttribute("data-correct")) {
+                  option.classList.add("correct");
+                }
+
+                // Disable further selection
+                option.style.pointerEvents = "none";
+              });
+            });
+
+            // Update score and feedback
+            document.getElementById("quiz-score").textContent =
+              `${score}/${questions.length}`;
+
+            const feedback = document.getElementById("quiz-feedback");
+            if (score === questions.length) {
+              feedback.textContent =
+                "Excellent! You have a great understanding of organic farming principles.";
+            } else if (score >= questions.length / 2) {
+              feedback.textContent =
+                "Good job! You have a solid understanding, but there's still more to learn.";
+            } else {
+              feedback.textContent =
+                "Keep learning! Review the principles of organic farming to improve your knowledge.";
+            }
+
+            // Show result
+            document.querySelector(".quiz-result").classList.add("active");
+
+            // Disable submit button
+            this.disabled = true;
+          });
+
+        // Pest management quiz
+        document
+          .getElementById("pest-quiz-submit")
+          .addEventListener("click", function () {
+            const questions = document.querySelectorAll("#pest .quiz-question");
+            let score = 0;
+
+            questions.forEach((question) => {
+              const options = question.querySelectorAll(".quiz-option");
+              let answered = false;
+
+              options.forEach((option) => {
+                if (option.classList.contains("selected")) {
+                  answered = true;
+
+                  if (option.hasAttribute("data-correct")) {
+                    score++;
+                    option.classList.add("correct");
+                  } else {
+                    option.classList.add("incorrect");
+                  }
+                } else if (option.hasAttribute("data-correct")) {
+                  option.classList.add("correct");
+                }
+
+                // Disable further selection
+                option.style.pointerEvents = "none";
+              });
+            });
+
+            // Update score and feedback
+            document.getElementById("pest-quiz-score").textContent =
+              `${score}/${questions.length}`;
+
+            const feedback = document.getElementById("pest-quiz-feedback");
+            if (score === questions.length) {
+              feedback.textContent =
+                "Excellent! You have a great understanding of organic pest management.";
+            } else if (score >= questions.length / 2) {
+              feedback.textContent =
+                "Good job! You have a solid understanding, but there's still more to learn.";
+            } else {
+              feedback.textContent =
+                "Keep learning! Review the principles of organic pest management to improve your knowledge.";
+            }
+
+            // Show result
+            document.getElementById("pest-quiz-result").classList.add("active");
+
+            // Disable submit button
+            this.disabled = true;
+          });
+
+        // Quiz option selection
+        document.querySelectorAll(".quiz-option").forEach((option) => {
+          option.addEventListener("click", function () {
+            // Remove selected class from siblings
+            const siblings = this.parentNode.querySelectorAll(".quiz-option");
+            siblings.forEach((sibling) => sibling.classList.remove("selected"));
+
+            // Add selected class to clicked option
+            this.classList.add("selected");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

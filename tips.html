@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organic Growing Tips</title>
+    <link rel="stylesheet" href="tips.css" />
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="site-header">
+        <nav class="main-nav">
+          <h1 class="site-title">TerraCraft</h1>
+          <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="store.html" class="nav-link">Store</a>
+            <a href="forum.html" class="nav-link">Community Forum</a>
+          </div>
+        </nav>
+      </header>
+      <main class="main-content">
+        <div class="content-grid">
+          <div class="tips-categories">
+            <a class="category-card" href="basic-principles.html">
+              <img
+                alt="Basic organic farming principles"
+                src="images/img_660be77949ffa7-73444220-84857755.jpg"
+                class="category-image"
+              />
+              <h3 class="category-title">Basic Principles</h3>
+              <p>Learn the fundamentals of organic farming</p>
+            </a>
+            <a class="category-card" href="basic-principles.html">
+              <img
+                alt="Soil management techniques"
+                src="images/MicrosoftTeams-image-97.jpg"
+                class="category-image"
+              />
+              <h3 class="category-title">Soil Management</h3>
+              <p>Master organic soil care techniques</p>
+            </a>
+            <a class="category-card" href="basic-principles.html">
+              <img
+                alt="Natural pest management"
+                src="images/istockphoto-1301665553-612x612.jpg"
+                class="category-image"
+              />
+              <h3 class="category-title">Pest Management</h3>
+              <p>Natural pest control solutions</p>
+            </a>
+            <a class="category-card" href="basic-principles.html ">
+              <img
+                alt="Water management systems"
+                src="images/images (1).jpeg"
+                class="category-image"
+              />
+              <h3 class="category-title">Water Management</h3>
+              <p>Efficient irrigation practices</p>
+            </a>
+          </div>
+          <div class="sidebar">
+            <div class="quick-tips-section">
+              <h2 class="section-title">Get Personalized Growing Tips</h2>
+              <div class="quick-form">
+                <select class="form-select" id="quick-region-select">
+                  <option>Select Region</option>
+                  <!-- Regions will be populated by JavaScript -->
+                </select>
+                <select class="form-select" id="quick-crop-select">
+                  <option>Select Crop Type</option>
+                  <option>Vegetables</option>
+                  <option>Fruits</option>
+                  <option>Grains</option>
+                </select>
+                <button class="primary-button" id="quick-tips-button">
+                  Get Tips
+                </button>
+              </div>
+            </div>
+            <div class="newsletter-section">
+              <h2 class="section-title">Subscribe to Our Newsletter</h2>
+              <p class="newsletter-description">
+                Get the latest farming tips and news delivered to your inbox
+              </p>
+              <input
+                type="email"
+                placeholder="Your email address"
+                class="form-input"
+                id="newsletter-email"
+              />
+              <button class="primary-button" id="newsletter-button">
+                Subscribe
+              </button>
+            </div>
+            <form
+              class="detailed-form"
+              id="tips-form"
+              action="personalized-tips.html"
+              method="get"
+            >
+              <div class="form-section basic-info-section" id="section-1">
+                <h3 class="form-section-title">Basic Information</h3>
+                <div class="form-group">
+                  <label class="form-label">Select Your Region:</label>
+                  <select class="form-select" id="region-select" name="region">
+                    <option value="">Select a district</option>
+                    <!-- Regions will be populated by JavaScript -->
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label"
+                    >What are you planning to grow?</label
+                  >
+                  <input
+                    class="form-input"
+                    type="text"
+                    placeholder="e.g., Tomatoes, Paddy, Cotton"
+                    id="crop-input"
+                    name="crop"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Farming Experience Level:</label>
+                  <select
+                    class="form-select"
+                    id="experience-select"
+                    name="experience"
+                  >
+                    <option value="">Select your experience level</option>
+                    <option value="beginner">Beginner (0-2 years)</option>
+                    <option value="intermediate">
+                      Intermediate (2-5 years)
+                    </option>
+                    <option value="experienced">Experienced (5+ years)</option>
+                  </select>
+                </div>
+                <button
+                  type="button"
+                  class="next-button"
+                  onclick="nextSection()"
+                >
+                  Next
+                </button>
+              </div>
+              <div class="form-section crop-details-section" id="section-2">
+                <h3 class="form-section-title">Crop Details</h3>
+                <div class="form-group">
+                  <label class="form-label">Season:</label>
+                  <select class="form-select" id="season-select" name="season">
+                    <option value="">Select Season</option>
+                    <!-- Seasons will be populated by JavaScript -->
+                  </select>
+                </div>
+                <div class="form-buttons">
+                  <button
+                    type="button"
+                    class="back-button"
+                    onclick="prevSection()"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="button"
+                    class="next-button"
+                    onclick="nextSection()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+              <div
+                class="form-section growing-conditions-section"
+                id="section-3"
+              >
+                <h3 class="form-section-title">Growing Conditions</h3>
+                <div class="form-group">
+                  <label class="form-label">Soil Type:</label>
+                  <select class="form-select" id="soil-select" name="soil">
+                    <option value="">Select Soil Type</option>
+                    <!-- Soil types will be populated by JavaScript -->
+                  </select>
+                </div>
+                <div class="form-buttons">
+                  <button
+                    type="button"
+                    class="back-button"
+                    onclick="prevSection()"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="button"
+                    class="next-button"
+                    onclick="nextSection()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+              <div class="form-section generate-tips-section" id="section-4">
+                <h3 class="form-section-title">Get Your Personalized Tips</h3>
+                <div class="form-buttons">
+                  <button
+                    type="button"
+                    class="back-button"
+                    onclick="prevSection()"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="submit"
+                    class="submit-button"
+                    id="generate-tips-button"
+                  >
+                    Generate Tips
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer class="site-footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+              <li><a href="store.html" class="footer-link">Store</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3 class="footer-title">Resources</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="guides.html" class="footer-link">Farming Guides</a>
+              </li>
+              <li>
+                <a href="forum.html" class="footer-link">Community Forum</a>
+              </li>
+              <li><a href="store.html" class="footer-link">Store</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="tips.js"></script>
+  </body>
+</html>

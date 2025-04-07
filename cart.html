@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart - Organic Store</title>
+    <link rel="stylesheet" href="store.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="site-header">
+        <nav class="main-nav">
+          <h1 class="site-title">TerraCraft</h1>
+          <div class="nav-links">
+            <a class="nav-link nav-link-active" href="index.html">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="forum.html" class="nav-link">Forum</a>
+          </div>
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <a href="cart.html" class="cart-button nav-link-active">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart (</span>
+            <span id="cart-count">0</span>
+            <span>)</span>
+          </a>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu">
+          <a href="store.html" class="mobile-nav-link">Home</a>
+          <a href="#" class="mobile-nav-link">About</a>
+          <a href="#" class="mobile-nav-link">Contact</a>
+          <a href="#" class="mobile-nav-link">Forum</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <h1 class="cart-page-title">Shopping Cart</h1>
+
+        <div id="cart-content">
+          <!-- Cart content will be populated by JavaScript -->
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-content">
+          <section class="footer-section">
+            <h3 class="footer-heading">Quick Links</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="index.html" class="footer-link">Home</a>
+              </li>
+              <li class="footer-item">
+                <a href="about.html" class="footer-link">About Us</a>
+              </li>
+              <li class="footer-item">
+                <a href="store.html" class="footer-link">Store</a>
+              </li>
+              <li class="footer-item">
+                <a href="contact.html" class="footer-link">Contact</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Categories</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="#" class="footer-link">Tools</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Seeds</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Fertilizers</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Community</h3>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <a href="#" class="footer-link">Forum</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Blog</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Events</a>
+              </li>
+            </ul>
+          </section>
+          <section class="footer-section">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p class="footer-text">Email: info@terracraft.com</p>
+            <p class="footer-text">Phone: (555) 123-4567</p>
+            <p class="footer-text">Address: 123 Green Street, Earth City</p>
+          </section>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy;  2025 TerraCraft. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get cart items from localStorage
+        let cart = JSON.parse(localStorage.getItem("organicStoreCart")) || [];
+
+        // Update cart count
+        function updateCartCount() {
+          const cartCount = document.getElementById("cart-count");
+          cartCount.textContent = cart.reduce(
+            (total, item) => total + item.quantity,
+            0,
+          );
+        }
+
+        // Calculate subtotal
+        function calculateSubtotal() {
+          return cart.reduce(
+            (total, item) => total + item.price * item.quantity,
+            0,
+          );
+        }
+
+        // Render cart
+        function renderCart() {
+          const cartContent = document.getElementById("cart-content");
+
+          if (cart.length === 0) {
+            // Empty cart
+            cartContent.innerHTML = `
+            <div class="empty-cart">
+              <i class="fas fa-shopping-cart empty-cart-icon"></i>
+              <p class="empty-cart-message">Your cart is empty</p>
+              <a href="store.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+          `;
+            return;
+          }
+
+          // Cart with items
+          const subtotal = calculateSubtotal();
+          const shipping = 5.99;
+          const tax = subtotal * 0.08; // Assuming 8% tax
+          const total = subtotal + shipping + tax;
+
+          cartContent.innerHTML = `
+          <div class="cart-container">
+            <div class="cart-header">
+              <div>Image</div>
+              <div>Product</div>
+              <div>Price</div>
+              <div>Quantity</div>
+              <div>Remove</div>
+            </div>
+            <div id="cart-items">
+              <!-- Cart items will be populated here -->
+            </div>
+
+            <div class="cart-summary">
+              <div class="cart-coupon">
+                <input type="text" placeholder="Coupon code" id="coupon-code">
+                <button id="apply-coupon">Apply Coupon</button>
+              </div>
+
+              <div class="cart-totals">
+                <h3 class="cart-totals-title">Cart Totals</h3>
+                <div class="cart-totals-row">
+                  <span>Subtotal</span>
+                  <span>$${subtotal.toFixed(2)}</span>
+                </div>
+                <div class="cart-totals-row">
+                  <span>Shipping</span>
+                  <span>$${shipping.toFixed(2)}</span>
+                </div>
+                <div class="cart-totals-row">
+                  <span>Tax (8%)</span>
+                  <span>$${tax.toFixed(2)}</span>
+                </div>
+                <div class="cart-totals-row total">
+                  <span>Total</span>
+                  <span>$${total.toFixed(2)}</span>
+                </div>
+                <a href="checkout.html" class="checkout-button">Proceed to Checkout</a>
+              </div>
+            </div>
+          </div>
+        `;
+
+          const cartItemsContainer = document.getElementById("cart-items");
+
+          // Add each cart item
+          cart.forEach((item) => {
+            const cartItemElement = document.createElement("div");
+            cartItemElement.className = "cart-item-row";
+            cartItemElement.innerHTML = `
+            <div>
+              <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+            </div>
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+            <div class="cart-quantity-controls">
+              <button class="cart-quantity-btn decrease" data-id="${item.id}">-</button>
+              <input type="number" value="${item.quantity}" min="1" class="cart-quantity-input" data-id="${item.id}">
+              <button class="cart-quantity-btn increase" data-id="${item.id}">+</button>
+            </div>
+            <div>
+              <button class="cart-remove-btn" data-id="${item.id}">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          `;
+
+            cartItemsContainer.appendChild(cartItemElement);
+          });
+
+          // Add event listeners
+          document
+            .querySelectorAll(".cart-quantity-btn.decrease")
+            .forEach((button) => {
+              button.addEventListener("click", function () {
+                const id = parseInt(this.getAttribute("data-id"));
+                decreaseQuantity(id);
+              });
+            });
+
+          document
+            .querySelectorAll(".cart-quantity-btn.increase")
+            .forEach((button) => {
+              button.addEventListener("click", function () {
+                const id = parseInt(this.getAttribute("data-id"));
+                increaseQuantity(id);
+              });
+            });
+
+          document.querySelectorAll(".cart-quantity-input").forEach((input) => {
+            input.addEventListener("change", function () {
+              const id = parseInt(this.getAttribute("data-id"));
+              const quantity = parseInt(this.value);
+              updateQuantity(id, quantity);
+            });
+          });
+
+          document.querySelectorAll(".cart-remove-btn").forEach((button) => {
+            button.addEventListener("click", function () {
+              const id = parseInt(this.getAttribute("data-id"));
+              removeItem(id);
+            });
+          });
+
+          // Coupon code functionality
+          document
+            .getElementById("apply-coupon")
+            .addEventListener("click", function () {
+              const couponCode = document
+                .getElementById("coupon-code")
+                .value.trim()
+                .toUpperCase();
+
+              if (couponCode === "ORGANIC10") {
+                // Apply 10% discount
+                const discount = subtotal * 0.1;
+                const newTotal = total - discount;
+
+                // Update total in the DOM
+                const totalElement = document.querySelector(
+                  ".cart-totals-row.total span:last-child",
+                );
+                totalElement.textContent = `$${newTotal.toFixed(2)}`;
+
+                // Add discount row
+                const discountRow = document.createElement("div");
+                discountRow.className = "cart-totals-row";
+                discountRow.innerHTML = `
+              <span>Discount (10%)</span>
+              <span>-$${discount.toFixed(2)}</span>
+            `;
+
+                // Insert before total row
+                const totalRow = document.querySelector(
+                  ".cart-totals-row.total",
+                );
+                totalRow.parentNode.insertBefore(discountRow, totalRow);
+
+                // Disable coupon input and button
+                document.getElementById("coupon-code").disabled = true;
+                this.disabled = true;
+
+                // Show success message
+                const successMessage = document.createElement("p");
+                successMessage.textContent = "Coupon applied successfully!";
+                successMessage.style.color = "#2c5530";
+                successMessage.style.marginTop = "10px";
+                document
+                  .querySelector(".cart-coupon")
+                  .appendChild(successMessage);
+              } else {
+                // Show error message
+                const errorMessage = document.createElement("p");
+                errorMessage.textContent = "Invalid coupon code";
+                errorMessage.style.color = "#ff4d4d";
+                errorMessage.style.marginTop = "10px";
+                document
+                  .querySelector(".cart-coupon")
+                  .appendChild(errorMessage);
+
+                // Remove error message after 3 seconds
+                setTimeout(() => {
+                  errorMessage.remove();
+                }, 3000);
+              }
+            });
+        }
+
+        // Decrease quantity
+        function decreaseQuantity(id) {
+          const item = cart.find((item) => item.id === id);
+          if (item && item.quantity > 1) {
+            item.quantity -= 1;
+            saveCart();
+            renderCart();
+          }
+        }
+
+        // Increase quantity
+        function increaseQuantity(id) {
+          const item = cart.find((item) => item.id === id);
+          if (item) {
+            item.quantity += 1;
+            saveCart();
+            renderCart();
+          }
+        }
+
+        // Update quantity
+        function updateQuantity(id, quantity) {
+          if (quantity < 1) quantity = 1;
+
+          const item = cart.find((item) => item.id === id);
+          if (item) {
+            item.quantity = quantity;
+            saveCart();
+            renderCart();
+          }
+        }
+
+        // Remove item
+        function removeItem(id) {
+          cart = cart.filter((item) => item.id !== id);
+          saveCart();
+          renderCart();
+          updateCartCount();
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+          localStorage.setItem("organicStoreCart", JSON.stringify(cart));
+        }
+
+        // Mobile menu toggle
+        document
+          .getElementById("mobile-menu-toggle")
+          .addEventListener("click", function () {
+            const mobileMenu = document.getElementById("mobile-menu");
+            mobileMenu.classList.toggle("active");
+          });
+
+        // Initialize
+        updateCartCount();
+        renderCart();
+      });
+    </script>
+  </body>
+</html>
