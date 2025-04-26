@@ -1,442 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TerraCraft - Tamil Nadu Weather Map</title>
-    <style>
-      /* ... (previous styles remain the same until .map-container) ... */
-
-.map-container {
-  flex: 1;
-  background-color: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
+<head>
+    <meta charset="UTF-8">
+    <title>Weather in Tamil Nadu</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f4f7;
 }
 
-.map-controls {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+header {
+    background: #2196F3;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-.zoom-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  border: none;
-  background-color: rgb(76, 175, 80);
-  color: white;
-  cursor: pointer;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
+#map-container {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.zoom-btn:hover {
-  background-color: rgb(56, 142, 60);
+.city-name {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
 }
 
-.map-wrapper {
-  position: relative;
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
-  cursor: grab;
-}
-
-.map-wrapper:active {
-  cursor: grabbing;
-}
-
-#tnMap {
-  width: 100%;
-  height: 100%;
-  transform-origin: center;
-  transition: transform 0.2s ease;
-}
-
-.district {
-  fill: #e0e0e0;
-  stroke: #fff;
-  stroke-width: 1;
-  transition: fill 0.3s ease;
-}
-
-.district:hover {
-  fill: #bdbdbd;
-}
-
-.district.active {
-  fill: rgb(76, 175, 80);
-}
-
-.map-markers {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.district-marker {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  background-color: rgb(76, 175, 80);
-  border: 2px solid white;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  pointer-events: auto;
-}
-
-.district-marker:hover,
-.district-marker.active {
-  width: 16px;
-  height: 16px;
-  background-color: rgb(56, 142, 60);
-}
-
-.marker-label {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: 12px;
-  font-weight: 500;
-  color: rgb(51, 51, 51);
-  text-shadow: 1px 1px 1px white;
-  pointer-events: none;
+object {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 10px;
 }
 
 .weather-info {
-  flex: 0 0 300px;
-  background-color: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-size: 16px;
+    display: none; /* hidden initially */
 }
 
-.weather-title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: rgb(51, 51, 51);
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Weather in Tamil Nadu</h1>
+</header>
+
+<section id="map-container">
+    <!-- Embed your SVG map directly -->
+    <object id="tamilNaduMap" type="image/svg+xml" data="Tamil_Nadu_district_map.svg"></object>
+</section>
+
+<div class="city-name" id="cityName">
+    Click a district to get weather info!
+</div>
+
+<!-- Weather Info Container -->
+<div id="weatherInfo" class="weather-info"></div>
+
+<script>
+  // Wait till the SVG is fully loaded inside the object
+document.getElementById('tamilNaduMap').addEventListener('load', function () {
+    const svgDoc = this.contentDocument; // get SVG document inside object
+    const districts = svgDoc.querySelectorAll('path'); // assuming districts are drawn with <path>
+
+    districts.forEach(district => {
+        district.addEventListener('click', function () {
+            const districtName = this.getAttribute('name') || this.getAttribute('id') || 'Unknown District';
+            document.getElementById('cityName').innerText = `Weather for ${districtName}`;
+            getWeatherData(districtName);
+        });
+
+        // Change cursor when hovering
+        district.style.cursor = 'pointer';
+    });
+});
+
+// Fetch dummy weather data (you can replace this with real API later)
+function getWeatherData(district) {
+    // Example: Static dummy data
+    const weatherData = {
+        "Chennai": { temp: "32°C", condition: "Sunny" },
+        "Coimbatore": { temp: "28°C", condition: "Partly Cloudy" },
+        "Madurai": { temp: "30°C", condition: "Hot" },
+        "Salem": { temp: "29°C", condition: "Rainy" },
+        "Trichy": { temp: "31°C", condition: "Humid" }
+        // Add more districts here
+    };
+
+    const info = weatherData[district] || { temp: "N/A", condition: "No data available" };
+
+    const weatherDiv = document.getElementById('weatherInfo');
+    weatherDiv.style.display = "block"; // show the weather info
+    weatherDiv.innerHTML = `
+        <h2>${district}</h2>
+        <p><strong>Temperature:</strong> ${info.temp}</p>
+        <p><strong>Condition:</strong> ${info.condition}</p>
+    `;
 }
 
-.weather-detail {
-  margin-bottom: 10px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.weather-detail span:first-child {
-  font-weight: 500;
-  color: rgb(76, 175, 80);
-}
-
-.weather-data.hidden,
-.default-message.hidden {
-  display: none;
-}
-
-.default-message {
-  color: rgb(117, 117, 117);
-  text-align: center;
-  font-style: italic;
-}
-
-.main-footer {
-  background-color: rgb(51, 51, 51);
-  color: white;
-  padding: 40px 0 20px;
-  margin-top: auto;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  margin-bottom: 30px;
-}
-
-.footer-title {
-  color: rgb(76, 175, 80);
-  margin-bottom: 15px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-link {
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-  color: rgb(76, 175, 80);
-}
-
-.social-links {
-  display: flex;
-  gap: 15px;
-}
-
-.social-link {
-  background-color: rgb(240, 240, 240);
-  padding: 5px 10px;
-  border-radius: 4px;
-  color: rgb(51, 51, 51);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  background-color: rgb(76, 175, 80);
-  color: white;
-}
-
-.copyright {
-  border-top: 1px solid rgb(68, 68, 68);
-  padding-top: 20px;
-  text-align: center;
-  color: rgb(170, 170, 170);
-  font-size: 14px;
-}
-
-@media (max-width: 991px) {
-  .content-wrapper {
-    flex-direction: column;
-  }
-
-  .weather-info {
-    flex: none;
-    width: 100%;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .social-links {
-    justify-content: center;
-  }
-}
-
-    </style>
-  </head>
-  <body>
-    <div class="app-container">
-      <header class="main-header">
-        <div class="header-container">
-          <div class="logo">TerraCraft</div>
-          <nav class="main-nav">
-            <ul class="nav-list">
-              <li class="nav-item">Home</li>
-              <li class="nav-item">About Us</li>
-              <li class="nav-item">Community</li>
-              <li class="nav-item">Store</li>
-              <li class="nav-item">Contact</li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
-      <main class="main-content">
-        <h1 class="page-title">Tamil Nadu Weather Map</h1>
-        <div class="content-wrapper">
-          <section class="map-container">
-            <div class="map-controls">
-              <button class="zoom-btn" id="zoomIn">+</button>
-              <button class="zoom-btn" id="zoomOut">-</button>
-              <button class="zoom-btn" id="resetZoom">Reset</button>
-            </div>
-            <div class="map-wrapper" id="mapWrapper">
-              <svg viewBox="0 0 500 600" id="tnMap">
-                <path d="M250,100 L300,150 L280,200 L220,180 Z" class="district" data-district="chennai" data-name="Chennai" />
-                <path d="M200,150 L250,200 L230,250 L170,230 Z" class="district" data-district="coimbatore" data-name="Coimbatore" />
-                <!-- You can add more district paths here -->
-              </svg>
-              <div id="mapMarkers" class="map-markers"></div>
-            </div>
-          </section>
-
-          <section class="weather-info">
-            <h2 class="weather-title">Weather Information</h2>
-            <div id="weatherData" class="weather-data hidden">
-              <p class="weather-detail">
-                <span>Temperature:</span>
-                <span id="temperature"></span><span>°C</span>
-              </p>
-              <p class="weather-detail">
-                <span>Condition:</span>
-                <span id="condition"></span>
-              </p>
-              <p class="weather-detail">
-                <span>Humidity:</span>
-                <span id="humidity"></span><span>%</span>
-              </p>
-              <p class="weather-detail">
-                <span>Wind:</span>
-                <span id="wind"></span><span>km/h</span>
-              </p>
-            </div>
-            <p id="defaultMessage" class="default-message">
-              Select a district to view weather information
-            </p>
-          </section>
-        </div>
-      </main>
-
-      <footer class="main-footer">
-        <div class="footer-container">
-          <div class="footer-content">
-            <section class="footer-section">
-              <h3 class="footer-title">Quick Links</h3>
-              <ul class="footer-links">
-                <li class="footer-link">About Us</li>
-                <li class="footer-link">Contact</li>
-                <li class="footer-link">Store</li>
-                <li class="footer-link">Community Forum</li>
-              </ul>
-            </section>
-            <section class="footer-section">
-              <h3 class="footer-title">Connect With Us</h3>
-              <div class="social-links">
-                <a href="#" class="social-link">Facebook</a>
-                <a href="#" class="social-link">Twitter</a>
-                <a href="#" class="social-link">Instagram</a>
-              </div>
-            </section>
-          </div>
-          <div class="copyright">
-            © 2025 TerraCraft. All rights reserved.
-          </div>
-        </div>
-      </footer>
-    </div>
-
-    <script>
-      (() => {
-        const state = {
-          selectedDistrict: "",
-          weather: null,
-          mapScale: 1,
-          mapPosition: { x: 0, y: 0 },
-          isDragging: false,
-          dragStart: { x: 0, y: 0 },
-          districts: {
-            chennai: { name: "Chennai", lat: 13.0827, lon: 80.2707, svgX: 380, svgY: 120 },
-            coimbatore: { name: "Coimbatore", lat: 11.0168, lon: 76.9558, svgX: 160, svgY: 420 },
-            madurai: { name: "Madurai", lat: 9.9252, lon: 78.1198, svgX: 280, svgY: 480 },
-            salem: { name: "Salem", lat: 11.6643, lon: 78.146, svgX: 220, svgY: 320 },
-            trichy: { name: "Trichy", lat: 10.7905, lon: 78.7047, svgX: 260, svgY: 380 },
-            thanjavur: { name: "Thanjavur", lat: 10.787, lon: 79.1378, svgX: 320, svgY: 400 },
-            tirunelveli: { name: "Tirunelveli", lat: 8.7139, lon: 77.7567, svgX: 240, svgY: 540 },
-            vellore: { name: "Vellore", lat: 12.9165, lon: 79.1325, svgX: 300, svgY: 180 },
-            erode: { name: "Erode", lat: 11.341, lon: 77.7172, svgX: 180, svgY: 360 },
-            tiruppur: { name: "Tiruppur", lat: 11.1085, lon: 77.3411, svgX: 200, svgY: 400 },
-          },
-
-          async fetchWeather(lat, lon) {
-            try {
-              const response = await fetch(
-                `https://api.weatherapi.com/v1/current.json?key=a064d72face247829e0162704252604&q=${lat},${lon}`
-              );
-              const data = await response.json();
-              this.weather = data;
-              updateWeatherDisplay();
-            } catch (error) {
-              console.error("Error fetching weather:", error);
-            }
-          },
-        };
-
-        function initializeMap() {
-          const mapWrapper = document.getElementById("mapWrapper");
-          const tnMap = document.getElementById("tnMap");
-          const mapMarkers = document.getElementById("mapMarkers");
-
-          Object.entries(state.districts).forEach(([key, district]) => {
-            const marker = createDistrictMarker(key, district);
-            mapMarkers.appendChild(marker);
-          });
-
-          tnMap.addEventListener("click", (e) => {
-            if (e.target.classList.contains("district")) {
-              const districtKey = e.target.dataset.district;
-              selectDistrict(districtKey);
-            }
-          });
-
-          document.getElementById("zoomIn").addEventListener("click", () => updateMapScale(state.mapScale * 1.2));
-          document.getElementById("zoomOut").addEventListener("click", () => updateMapScale(state.mapScale / 1.2));
-          document.getElementById("resetZoom").addEventListener("click", () => updateMapScale(1));
-        }
-
-        function createDistrictMarker(key, district) {
-          const marker = document.createElement("div");
-          marker.classList.add("district-marker");
-          marker.style.left = `${(district.svgX / 500) * 100}%`;
-          marker.style.top = `${(district.svgY / 600) * 100}%`;
-          marker.title = district.name;
-          marker.addEventListener("click", () => selectDistrict(key));
-          return marker;
-        }
-
-        function selectDistrict(key) {
-          state.selectedDistrict = key;
-          const district = state.districts[key];
-          if (district) {
-            state.fetchWeather(district.lat, district.lon);
-          }
-        }
-
-        function updateWeatherDisplay() {
-          if (state.weather) {
-            document.getElementById("temperature").textContent = state.weather.current.temp_c;
-            document.getElementById("condition").textContent = state.weather.current.condition.text;
-            document.getElementById("humidity").textContent = state.weather.current.humidity;
-            document.getElementById("wind").textContent = state.weather.current.wind_kph;
-            document.getElementById("weatherData").classList.remove("hidden");
-            document.getElementById("defaultMessage").classList.add("hidden");
-          }
-        }
-
-        function updateMapScale(scale) {
-          state.mapScale = scale;
-          document.getElementById("tnMap").style.transform = `scale(${scale})`;
-        }
-
-        initializeMap();
-      })();
-    </script>
-  </body>
+</script>
+</body>
 </html>
